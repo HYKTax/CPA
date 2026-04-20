@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — HYK Tax | Florida CPA Firm with a Global Team</title>
+<meta name="description" content="Meet the team behind HYK Tax — a Florida-based CPA firm with 15+ years of experience helping U.S. businesses and individuals master their taxes." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F6F1E8;--cream-2:#EFE7D7;--ink:#0B1F33;--ink-soft:#17344E;
+    --brass:#B8894A;--brass-deep:#8E6633;--muted:#5B5952;--rule:#D8CFBC;
+    --shadow:0 20px 60px -30px rgba(11,31,51,.35);
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.8;mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.4s;background:transparent}
+  .nav.scrolled{background:rgba(246,241,232,.92);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:26px;font-variation-settings:"SOFT" 30;letter-spacing:-.5px;color:var(--ink)}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;font-variation-settings:"SOFT" 100;position:relative}
+  .logo-mark::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:2.5px;color:var(--muted);font-weight:500;text-transform:uppercase;margin-top:-4px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{position:relative;padding:6px 0;transition:.2s}
+  .nav-links a.active{color:var(--brass-deep)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+  .nav-cta{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:50px;font-size:13.5px;font-weight:500;transition:.25s;letter-spacing:.2px}
+  .nav-cta:hover{background:var(--brass-deep);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .burger{display:none;width:28px;height:22px;position:relative;flex-direction:column;justify-content:space-between}
+  .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+
+  /* PAGE HERO */
+  .page-hero{padding:170px 0 60px;position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;top:10%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(184,137,74,.14),transparent 65%);border-radius:50%;pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center}
+  .page-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:24px;padding:8px 16px;border:1px solid var(--brass);border-radius:50px;background:rgba(184,137,74,.06)}
+  .page-title{font-family:var(--serif);font-size:clamp(42px,6vw,76px);font-weight:400;line-height:1;letter-spacing:-1.5px;margin-bottom:28px;font-variation-settings:"SOFT" 50,"opsz" 144}
+  .page-title em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .page-lede{font-size:19px;color:var(--muted);max-width:540px;line-height:1.6;margin-bottom:32px}
+  .hero-stats{display:flex;gap:32px;padding-top:24px;border-top:1px solid var(--rule);max-width:480px}
+  .hero-stat{flex:1}
+  .hero-stat-num{font-family:var(--serif);font-size:36px;font-weight:500;line-height:1;font-variation-settings:"SOFT" 60;color:var(--brass-deep)}
+  .hero-stat-lbl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  .hero-portrait{position:relative;aspect-ratio:4/5}
+  .portrait-card{
+    width:100%;height:100%;border-radius:24px;overflow:hidden;
+    background:linear-gradient(180deg,var(--cream-2),var(--ink) 200%);
+    border:1px solid var(--rule);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    position:relative;padding:40px;
+  }
+  .portrait-mark{
+    position:absolute;top:32px;right:32px;
+    width:60px;height:60px;border-radius:50%;
+    background:var(--ink);color:var(--cream);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-size:24px;font-weight:500;
+    font-variation-settings:"SOFT" 100;
+  }
+  .portrait-mark::after{content:'';position:absolute;inset:4px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .portrait-shape{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);
+    width:55%;aspect-ratio:1;
+    background:radial-gradient(circle at 30% 30%,var(--brass) 0%,var(--brass-deep) 60%,var(--ink-soft) 100%);
+    border-radius:50%;
+    box-shadow:inset -20px -20px 60px rgba(0,0,0,.25),0 30px 60px rgba(11,31,51,.3);
+  }
+  .portrait-shape::before{
+    content:'';position:absolute;top:15%;left:20%;width:35%;height:35%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.4),transparent 70%);
+    border-radius:50%;
+  }
+  .portrait-name{
+    background:rgba(11,31,51,.85);backdrop-filter:blur(8px);
+    color:var(--cream);padding:18px 22px;border-radius:14px;
+    position:relative;z-index:2;
+  }
+  .portrait-name h4{font-family:var(--serif);font-size:20px;font-weight:500;font-variation-settings:"SOFT" 50;margin-bottom:2px}
+  .portrait-name span{font-size:12px;letter-spacing:1.5px;color:var(--brass);text-transform:uppercase}
+
+  /* SECTION COMMON */
+  section{padding:100px 0}
+  .section-kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:18px;display:inline-flex;align-items:center;gap:12px}
+  .section-kicker::before{content:'';width:28px;height:1px;background:var(--brass)}
+  .section-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-1px;font-weight:400;font-variation-settings:"SOFT" 50,"opsz" 144;margin-bottom:16px}
+  .section-title em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .section-head{display:flex;gap:80px;margin-bottom:60px;align-items:flex-end}
+  .section-head .section-title{max-width:18ch}
+  .section-head p{font-size:17px;color:var(--muted);max-width:430px;margin-left:auto;line-height:1.65;flex-shrink:0}
+  .section-head-center{text-align:center;margin-bottom:60px}
+  .section-head-center .section-kicker{justify-content:center}
+  .section-head-center p{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto}
+
+  /* STORY */
+  .story-section{background:var(--cream-2)}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .story-text p{font-size:17px;line-height:1.75;color:var(--ink);margin-bottom:20px}
+  .story-text p:first-of-type::first-letter{
+    font-family:var(--serif);font-size:72px;font-weight:500;
+    float:left;line-height:.85;margin:6px 12px 0 0;
+    color:var(--brass-deep);font-variation-settings:"SOFT" 100;
+  }
+  .story-quote{
+    background:white;padding:40px;border-radius:20px;
+    border:1px solid var(--rule);box-shadow:var(--shadow);
+    position:relative;
+  }
+  .story-quote::before{
+    content:'"';font-family:var(--serif);font-size:120px;
+    color:var(--brass);line-height:.6;
+    position:absolute;top:30px;left:24px;
+    font-variation-settings:"SOFT" 100;opacity:.4;
+  }
+  .story-quote blockquote{
+    font-family:var(--serif);font-size:24px;line-height:1.4;
+    font-style:italic;font-variation-settings:"SOFT" 80,"opsz" 144;
+    margin-bottom:24px;position:relative;z-index:2;padding-top:30px;
+  }
+  .story-quote cite{
+    display:block;font-style:normal;font-size:13px;
+    color:var(--brass-deep);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
+  }
+
+  /* VALUES */
+  .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .value{padding:48px 32px;border-right:1px solid var(--rule);transition:background .3s;position:relative}
+  .value:last-child{border-right:none}
+  .value:hover{background:var(--cream-2)}
+  .value-num{font-family:var(--serif);font-size:13px;color:var(--brass-deep);font-weight:500;letter-spacing:1.5px;margin-bottom:24px}
+  .value-icon{width:52px;height:52px;border-radius:14px;background:var(--cream-2);color:var(--brass-deep);display:grid;place-items:center;margin-bottom:24px;transition:all .3s}
+  .value:hover .value-icon{background:var(--ink);color:var(--brass)}
+  .value h4{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.15;margin-bottom:14px;font-variation-settings:"SOFT" 50}
+  .value p{font-size:14.5px;color:var(--muted);line-height:1.6}
+
+  /* TEAM */
+  .team-section{background:var(--cream-2)}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .team-card{
+    background:white;border:1px solid var(--rule);border-radius:20px;
+    overflow:hidden;transition:all .3s;
+  }
+  .team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .team-photo{
+    aspect-ratio:1;background:linear-gradient(135deg,var(--cream-2),var(--ink-soft));
+    position:relative;overflow:hidden;
+  }
+  .team-initial{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:var(--serif);font-size:96px;font-weight:300;
+    color:rgba(255,255,255,.95);font-variation-settings:"SOFT" 100;
+    text-shadow:0 4px 20px rgba(11,31,51,.3);
+  }
+  .team-photo.t1{background:linear-gradient(135deg,#1B3851,#0B1F33)}
+  .team-photo.t2{background:linear-gradient(135deg,#8E6633,#5E4221)}
+  .team-photo.t3{background:linear-gradient(135deg,#2D4A3E,#17302A)}
+  .team-photo.t4{background:linear-gradient(135deg,#4A3B5E,#2B2240)}
+  .team-photo.t5{background:linear-gradient(135deg,#5E2D2D,#3A1B1B)}
+  .team-photo.t6{background:linear-gradient(135deg,#3D5A6E,#1F3140)}
+  .team-photo.t7{background:linear-gradient(135deg,#6B5320,#3F3015)}
+  .team-photo.t8{background:linear-gradient(135deg,#2A4A5E,#15293A)}
+  .team-photo .credentials{
+    position:absolute;top:16px;right:16px;
+    background:rgba(11,31,51,.7);backdrop-filter:blur(10px);
+    color:var(--cream);padding:6px 12px;border-radius:50px;
+    font-size:10px;letter-spacing:1.5px;font-weight:600;
+  }
+  .team-info{padding:24px}
+  .team-name{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.1;margin-bottom:4px;font-variation-settings:"SOFT" 50}
+  .team-role{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:14px}
+  .team-bio{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:18px;min-height:84px}
+  .team-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .team-tag{font-size:10.5px;background:var(--cream);padding:4px 10px;border-radius:50px;color:var(--ink);letter-spacing:.5px;font-weight:500}
+
+  /* CREDENTIALS */
+  .creds-section{padding:80px 0;background:var(--ink);color:var(--cream)}
+  .creds-section .section-kicker{color:var(--brass)}
+  .creds-section .section-kicker::before{background:var(--brass)}
+  .creds-section .section-title{color:var(--cream)}
+  .creds-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:50px}
+  .cred{
+    background:rgba(255,255,255,.04);border:1px solid rgba(184,137,74,.2);
+    border-radius:14px;padding:28px 20px;text-align:center;
+    transition:all .3s;
+  }
+  .cred:hover{background:rgba(184,137,74,.08);border-color:var(--brass);transform:translateY(-3px)}
+  .cred-mark{
+    font-family:var(--serif);font-size:32px;font-weight:500;
+    font-variation-settings:"SOFT" 60;color:var(--brass);
+    margin-bottom:10px;letter-spacing:1px;
+  }
+  .cred-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;line-height:1.4}
+
+  /* SOFTWARE */
+  .software{padding:80px 0;text-align:center}
+  .software-list{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px;
+  }
+  .software-tag{
+    padding:14px 22px;background:white;border:1px solid var(--rule);
+    border-radius:50px;font-size:14px;font-weight:500;letter-spacing:.2px;
+    transition:all .25s;color:var(--ink);
+  }
+  .software-tag:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-2px)}
+
+  /* CTA BAND */
+  .cta-band{background:var(--cream-2);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+  .cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(184,137,74,.18),transparent 60%);pointer-events:none}
+  .cta-band h2{font-family:var(--serif);font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:1.05;letter-spacing:-1px;margin-bottom:18px;font-variation-settings:"SOFT" 50,"opsz" 144;position:relative;z-index:2}
+  .cta-band h2 em{color:var(--brass-deep);font-style:italic;font-variation-settings:"SOFT" 100}
+  .cta-band p{font-size:17px;color:var(--muted);margin-bottom:36px;max-width:540px;margin-left:auto;margin-right:auto;position:relative;z-index:2}
+  .cta-band .btn-primary{background:var(--ink);color:var(--cream);padding:17px 34px;border-radius:50px;font-weight:500;font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:all .3s;position:relative;z-index:2}
+  .cta-band .btn-primary:hover{background:var(--brass-deep);transform:translateY(-2px);box-shadow:var(--shadow)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:80px 0 30px;position:relative;overflow:hidden}
+  footer::before{content:'HYK';position:absolute;bottom:-80px;right:-40px;font-family:var(--serif);font-size:400px;font-weight:300;opacity:.04;letter-spacing:-20px;line-height:.8;font-variation-settings:"SOFT" 100;pointer-events:none}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(246,241,232,.15);position:relative;z-index:2}
+  .footer-brand .logo{color:var(--cream)}
+  .footer-brand .logo-mark{background:var(--cream);color:var(--ink)}
+  .footer-brand p{margin-top:20px;font-size:14.5px;opacity:.7;line-height:1.65;max-width:36ch}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,241,232,.2);display:grid;place-items:center;transition:all .25s}
+  .social:hover{background:var(--brass);border-color:var(--brass)}
+  .footer-col h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--brass);font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{font-size:14.5px;opacity:.75;transition:all .2s}
+  .footer-col a:hover{opacity:1;color:var(--brass)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;font-size:13px;opacity:.6;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media (max-width:960px){
+    .hero-grid,.story-grid{grid-template-columns:1fr;gap:50px}
+    .hero-portrait{max-width:380px;margin:0 auto;width:100%}
+    .section-head{flex-direction:column;align-items:flex-start;gap:20px}
+    .section-head p{margin-left:0}
+    .values-grid{grid-template-columns:1fr 1fr}
+    .value{border-right:none;border-bottom:1px solid var(--rule)}
+    .value:nth-child(odd){border-right:1px solid var(--rule)}
+    .team-grid{grid-template-columns:1fr 1fr}
+    .creds-grid{grid-template-columns:repeat(3,1fr)}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-top:1px solid var(--rule)}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .nav-cta{display:none}
+    section{padding:60px 0}
+    .page-hero{padding:130px 0 40px}
+  }
+  @media (max-width:600px){
+    .values-grid,.team-grid{grid-template-columns:1fr}
+    .value{border-right:none!important}
+    .creds-grid{grid-template-columns:1fr 1fr}
+    .footer-top{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+    .hero-stats{flex-wrap:wrap;gap:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">H</span>
+      <span>HYK Tax<small>CPA · EST. 2009</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#process">Process</a>
+      <a href="insights.html">Insights</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="book.html" class="nav-cta">Book a Consultation →</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="page-kicker">About HYK Tax</div>
+      <h1 class="page-title">A small firm with <em>big-firm</em> standards.</h1>
+      <p class="page-lede">HYK Tax was founded on a simple idea: small businesses and busy individuals deserve a CPA who answers the phone, explains things plainly, and never disappears after April 15.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">2009</div>
+          <div class="hero-stat-lbl">Founded</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">15+</div>
+          <div class="hero-stat-lbl">Years Practicing</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">12</div>
+          <div class="hero-stat-lbl">Team Members</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-portrait reveal">
+      <div class="portrait-card">
+        <div class="portrait-mark">H</div>
+        <div class="portrait-shape"></div>
+        <div class="portrait-name">
+          <h4>Harshad Y. Khanna, CPA</h4>
+          <span>Founder &amp; Managing Partner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-kicker">Our Story</div>
+        <h2 class="section-title">Built for the way <em>U.S. businesses</em> actually work.</h2>
+      </div>
+      <p>What started as a one-person practice in Tampa has grown into a 12-person firm serving clients in all 50 states — but the principles haven't changed.</p>
+    </div>
+
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <p>Harshad opened HYK Tax in 2009 after a decade at two of the Big Four. The work was rigorous and the clients were Fortune 500 — but the businesses he genuinely loved talking to were the ones the big firms wouldn't take: dentists, contractors, e-commerce founders, freelance designers, restaurant owners.</p>
+        <p>He built HYK around a different math: Big Four standards, small-firm attention, and a global team structure that delivers both speed and savings. By 2014, the firm had outgrown its first office. By 2019, it had a dedicated production hub in Surat, India. Today, every U.S. return is signed by a Florida CPA, supported by a team of analysts and Enrolled Agents who keep your work moving overnight.</p>
+        <p>The firm has filed over 6,000 returns. The retention rate has stayed above 95% for the last seven years. We think those two numbers say everything.</p>
+      </div>
+      <div class="story-quote">
+        <blockquote>I've never met a small business that didn't deserve the same caliber of advice the biggest companies get. That's the firm I wanted to build — and it's the firm we still are.</blockquote>
+        <cite>— Harshad Y. Khanna, CPA · Founder</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-kicker">What We Believe</div>
+        <h2 class="section-title">Four principles that shape <em>every engagement</em>.</h2>
+      </div>
+      <p>We post these on the wall in both offices. They aren't slogans — they're the reasons we win and keep clients.</p>
+    </div>
+
+    <div class="values-grid reveal">
+      <div class="value">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="value-num">01</div>
+        <h4>Clarity over jargon</h4>
+        <p>If we can't explain it to you in plain English, we don't understand it well enough. Every memo, every email, every invoice — readable.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="value-num">02</div>
+        <h4>Defensible by default</h4>
+        <p>Every position we take is one we'd defend in an audit. We document our reasoning. We don't chase deductions that don't survive scrutiny.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="value-num">03</div>
+        <h4>Proactive, not reactive</h4>
+        <p>The best tax planning happens in October, not March. We bring up opportunities before they expire and risks before they hurt.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="value-num">04</div>
+        <h4>Pick up the phone</h4>
+        <p>You can call us in May. In July. In October. The same person who signs your return is the same person who answers your call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-kicker">The Team</div>
+        <h2 class="section-title">The people <em>behind your returns</em>.</h2>
+      </div>
+      <p>A senior team of CPAs, Enrolled Agents, and tax analysts working across two offices to keep your work moving 24 hours a day.</p>
+    </div>
+
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-photo t1">
+          <div class="team-initial">H</div>
+          <div class="credentials">CPA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Harshad Y. Khanna</div>
+          <div class="team-role">Founder · Managing Partner</div>
+          <p class="team-bio">Florida-licensed CPA with 20+ years of experience, including a decade at the Big Four. Leads tax strategy and high-complexity engagements.</p>
+          <div class="team-tags">
+            <span class="team-tag">CPA</span>
+            <span class="team-tag">M.S. Taxation</span>
+            <span class="team-tag">FL Bar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t2">
+          <div class="team-initial">P</div>
+          <div class="credentials">CPA · MBA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Priya Mehta</div>
+          <div class="team-role">Senior Tax Manager</div>
+          <p class="team-bio">CPA with 12 years in public accounting. Specializes in S-corp planning, multi-state filings, and real-estate tax strategy.</p>
+          <div class="team-tags">
+            <span class="team-tag">CPA</span>
+            <span class="team-tag">Real Estate</span>
+            <span class="team-tag">S-Corp</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t3">
+          <div class="team-initial">D</div>
+          <div class="credentials">EA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Daniel Reyes</div>
+          <div class="team-role">IRS Representation Lead</div>
+          <p class="team-bio">Enrolled Agent specializing in audit defense, offers in compromise, and complex notice resolution. Former IRS examiner.</p>
+          <div class="team-tags">
+            <span class="team-tag">EA</span>
+            <span class="team-tag">Audits</span>
+            <span class="team-tag">OIC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t4">
+          <div class="team-initial">S</div>
+          <div class="credentials">EA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Suresh Patel</div>
+          <div class="team-role">Senior US Tax Analyst</div>
+          <p class="team-bio">EA candidate with Part 2 cleared. Leads small-business returns and bookkeeping clean-ups using CCH Axcess and UltraTax.</p>
+          <div class="team-tags">
+            <span class="team-tag">EA Cand.</span>
+            <span class="team-tag">CCH</span>
+            <span class="team-tag">UltraTax</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t5">
+          <div class="team-initial">A</div>
+          <div class="credentials">CPA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Anita Sharma</div>
+          <div class="team-role">Bookkeeping Director</div>
+          <p class="team-bio">QuickBooks ProAdvisor managing monthly close for 100+ clients. Builds the chart of accounts every business wishes they'd started with.</p>
+          <div class="team-tags">
+            <span class="team-tag">QB Pro</span>
+            <span class="team-tag">Xero</span>
+            <span class="team-tag">Close Mgmt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t6">
+          <div class="team-initial">M</div>
+          <div class="credentials">EA Cand.</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Mark Anderson</div>
+          <div class="team-role">Sales Tax Specialist</div>
+          <p class="team-bio">Multi-state sales tax expert for e-commerce and SaaS clients. Has filed in all 50 states more times than he can count.</p>
+          <div class="team-tags">
+            <span class="team-tag">Sales Tax</span>
+            <span class="team-tag">Nexus</span>
+            <span class="team-tag">Avalara</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t7">
+          <div class="team-initial">R</div>
+          <div class="credentials">CPA</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Rachel Kim</div>
+          <div class="team-role">Advisory &amp; Planning</div>
+          <p class="team-bio">Tax planning lead for high-net-worth individuals and business owners. Specializes in retirement, equity comp, and exit planning.</p>
+          <div class="team-tags">
+            <span class="team-tag">CPA</span>
+            <span class="team-tag">Wealth Planning</span>
+            <span class="team-tag">Equity Comp</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo t8">
+          <div class="team-initial">J</div>
+          <div class="credentials">CPM</div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Jenna Thompson</div>
+          <div class="team-role">Client Success Manager</div>
+          <p class="team-bio">Your first call. Manages onboarding, document collection, and the day-to-day rhythm of every client relationship.</p>
+          <div class="team-tags">
+            <span class="team-tag">Onboarding</span>
+            <span class="team-tag">TaxDome</span>
+            <span class="team-tag">Box</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="creds-section">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-kicker">Credentials &amp; Memberships</div>
+      <h2 class="section-title">The license to do this work — <em>earned and maintained</em>.</h2>
+    </div>
+    <div class="creds-grid reveal">
+      <div class="cred">
+        <div class="cred-mark">CPA</div>
+        <div class="cred-label">Certified Public Accountant · FL</div>
+      </div>
+      <div class="cred">
+        <div class="cred-mark">EA</div>
+        <div class="cred-label">IRS Enrolled Agents</div>
+      </div>
+      <div class="cred">
+        <div class="cred-mark">AICPA</div>
+        <div class="cred-label">American Institute of CPAs</div>
+      </div>
+      <div class="cred">
+        <div class="cred-mark">FICPA</div>
+        <div class="cred-label">Florida Institute of CPAs</div>
+      </div>
+      <div class="cred">
+        <div class="cred-mark">NATP</div>
+        <div class="cred-label">National Assoc. of Tax Pros</div>
+      </div>
+      <div class="cred">
+        <div class="cred-mark">PTIN</div>
+        <div class="cred-label">IRS Preparer Tax ID</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE -->
+<section class="software">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-kicker">Tools We Use</div>
+      <h2 class="section-title">Enterprise-grade software, <em>under the hood</em>.</h2>
+      <p>The same software the largest firms use — paired with the rigor of a senior team that knows how to drive it.</p>
+    </div>
+    <div class="software-list reveal">
+      <span class="software-tag">CCH Axcess</span>
+      <span class="software-tag">GoSystem Tax RS</span>
+      <span class="software-tag">UltraTax CS</span>
+      <span class="software-tag">Drake Tax</span>
+      <span class="software-tag">ProConnect Online</span>
+      <span class="software-tag">QuickBooks Online</span>
+      <span class="software-tag">QuickBooks Desktop</span>
+      <span class="software-tag">Xero</span>
+      <span class="software-tag">TaxDome</span>
+      <span class="software-tag">Box</span>
+      <span class="software-tag">Gusto</span>
+      <span class="software-tag">ADP</span>
+      <span class="software-tag">Avalara</span>
+      <span class="software-tag">Bill.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container reveal">
+    <h2>Want to <em>meet the team</em>?</h2>
+    <p>Book a free 30-minute consultation. Talk to a real CPA. Get clear answers about whether HYK is the right fit for your situation.</p>
+    <a href="book.html" class="btn-primary">
+      Schedule a Consultation
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">H</span>
+          <span>HYK Tax<small style="color:rgba(246,241,232,.6)">CPA · EST. 2009</small></span>
+        </a>
+        <p>A Florida-licensed CPA firm delivering tax, accounting, and advisory services to U.S. businesses and individuals — with a dedicated offshore team that keeps your work moving around the clock.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Tax Preparation</a></li>
+          <li><a href="index.html#services">Bookkeeping</a></li>
+          <li><a href="index.html#services">Tax Advisory</a></li>
+          <li><a href="index.html#services">IRS Representation</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="portal.html">Client Portal</a></li>
+          <li><a href="book.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Engagement Letter</a></li>
+          <li><a href="#">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HYK Tax, PLLC. All rights reserved. Florida CPA License #AC-XXXXXX.</div>
+      <div>Designed &amp; built with care.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }}), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

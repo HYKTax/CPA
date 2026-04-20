@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Insights — HYK Tax | Tax Wisdom, Decoded.</title>
+<meta name="description" content="Plain-language articles on tax planning, bookkeeping, IRS notices, and small-business finance from the HYK Tax CPA team." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F6F1E8;--cream-2:#EFE7D7;--ink:#0B1F33;--ink-soft:#17344E;
+    --brass:#B8894A;--brass-deep:#8E6633;--muted:#5B5952;--rule:#D8CFBC;
+    --shadow:0 20px 60px -30px rgba(11,31,51,.35);
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.8;mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  input{font-family:inherit}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.4s;background:transparent}
+  .nav.scrolled{background:rgba(246,241,232,.92);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:26px;font-variation-settings:"SOFT" 30;letter-spacing:-.5px;color:var(--ink)}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;font-variation-settings:"SOFT" 100;position:relative}
+  .logo-mark::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:2.5px;color:var(--muted);font-weight:500;text-transform:uppercase;margin-top:-4px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{position:relative;padding:6px 0;transition:.2s}
+  .nav-links a.active{color:var(--brass-deep)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+  .nav-cta{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:50px;font-size:13.5px;font-weight:500;transition:.25s;letter-spacing:.2px}
+  .nav-cta:hover{background:var(--brass-deep);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .burger{display:none;width:28px;height:22px;flex-direction:column;justify-content:space-between}
+  .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+
+  /* HERO */
+  .page-hero{padding:160px 0 60px;text-align:center;position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(184,137,74,.12),transparent 60%);pointer-events:none}
+  .page-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:24px;padding:8px 16px;border:1px solid var(--brass);border-radius:50px;background:rgba(184,137,74,.06)}
+  .page-kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--brass)}
+  .page-hero h1{font-family:var(--serif);font-size:clamp(44px,6.5vw,96px);line-height:.98;letter-spacing:-1.5px;font-weight:400;font-variation-settings:"SOFT" 50,"opsz" 144;margin-bottom:24px;max-width:18ch;margin-inline:auto}
+  .page-hero h1 em{font-style:italic;font-weight:300;color:var(--brass-deep);font-variation-settings:"SOFT" 100,"opsz" 144}
+  .page-hero .lede{font-size:19px;color:var(--muted);max-width:580px;margin:0 auto 44px}
+
+  /* SEARCH */
+  .search-box{max-width:520px;margin:0 auto;position:relative}
+  .search-input{width:100%;padding:16px 56px 16px 24px;border:1px solid var(--rule);border-radius:50px;font-size:15px;background:white;color:var(--ink);transition:.25s}
+  .search-input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(11,31,51,.08)}
+  .search-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;transition:.25s}
+  .search-btn:hover{background:var(--brass-deep)}
+
+  /* FILTERS */
+  .filters{padding:50px 0 30px;position:sticky;top:68px;background:var(--cream);z-index:10;border-bottom:1px solid var(--rule);transition:.3s}
+  .filters.scrolled{background:rgba(246,241,232,.95);backdrop-filter:blur(10px)}
+  .filter-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .pill{padding:10px 20px;border-radius:50px;border:1px solid var(--rule);background:white;font-size:13.5px;font-weight:500;color:var(--ink);transition:.25s;letter-spacing:.2px}
+  .pill:hover{border-color:var(--ink)}
+  .pill.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .pill .count{opacity:.5;margin-left:4px;font-size:12px}
+
+  section{padding:60px 0}
+
+  /* FEATURED ARTICLE */
+  .featured-wrap{background:var(--ink);border-radius:28px;overflow:hidden;color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:440px;position:relative}
+  .featured-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(184,137,74,.22),transparent 60%);pointer-events:none}
+  .featured-visual{background:linear-gradient(135deg,var(--ink-soft) 0%,var(--ink) 100%);position:relative;overflow:hidden;display:grid;place-items:center}
+  .featured-visual::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%,rgba(184,137,74,.15),transparent 40%),
+      repeating-linear-gradient(45deg,transparent 0,transparent 20px,rgba(246,241,232,.03) 20px,rgba(246,241,232,.03) 21px);
+  }
+  .featured-visual-art{
+    position:relative;z-index:2;
+    font-family:var(--serif);font-size:200px;font-weight:300;
+    color:var(--brass);opacity:.6;line-height:.9;letter-spacing:-10px;
+    font-variation-settings:"SOFT" 100;
+  }
+  .featured-visual-art small{
+    display:block;font-size:13px;letter-spacing:4px;
+    color:var(--cream);opacity:.6;margin-top:20px;text-transform:uppercase;font-family:var(--sans);letter-spacing:4px;
+  }
+  .featured-content{padding:48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+  .feat-tag{display:inline-block;align-self:flex-start;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:16px;padding:6px 14px;border:1px solid rgba(184,137,74,.4);border-radius:50px}
+  .featured-content h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:400;font-variation-settings:"SOFT" 50,"opsz" 144;letter-spacing:-.5px;margin-bottom:18px}
+  .featured-content h2 em{color:var(--brass);font-style:italic;font-variation-settings:"SOFT" 100}
+  .featured-content p{font-size:16px;line-height:1.65;opacity:.8;margin-bottom:28px;max-width:54ch}
+  .feat-meta{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;opacity:.65}
+  .feat-meta .author-dot{width:6px;height:6px;border-radius:50%;background:var(--brass)}
+  .feat-read{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;background:var(--brass);color:white;font-weight:500;font-size:14px;align-self:flex-start;transition:.25s}
+  .feat-read:hover{background:var(--cream);color:var(--ink)}
+  .feat-read svg{transition:transform .3s}
+  .feat-read:hover svg{transform:translateX(4px)}
+
+  /* ARTICLES GRID */
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+  .article{background:white;border:1px solid var(--rule);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:all .3s;cursor:pointer}
+  .article:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--brass)}
+  .article.hidden{display:none}
+  .article-visual{aspect-ratio:16/10;background:var(--cream-2);position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:1px solid var(--rule)}
+  .article-visual .art-initial{font-family:var(--serif);font-size:100px;font-weight:300;color:var(--ink);opacity:.14;line-height:.9;letter-spacing:-6px;font-variation-settings:"SOFT" 100}
+  .article-visual .cat-label{position:absolute;top:14px;left:14px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);font-weight:600;padding:5px 10px;background:var(--cream);border-radius:50px;border:1px solid var(--rule)}
+  .article-visual.v-tax{background:linear-gradient(135deg,#F6F1E8,#EFE7D7)}
+  .article-visual.v-book{background:linear-gradient(135deg,#EFE7D7,#E5DBC5)}
+  .article-visual.v-irs{background:linear-gradient(135deg,#0B1F33,#17344E)}
+  .article-visual.v-irs .art-initial{color:var(--brass);opacity:.4}
+  .article-visual.v-irs .cat-label{background:var(--brass);color:white;border-color:var(--brass)}
+  .article-visual.v-biz{background:linear-gradient(135deg,#F6F1E8,#D8CFBC)}
+  .article-visual.v-industry{background:linear-gradient(135deg,#B8894A,#8E6633)}
+  .article-visual.v-industry .art-initial{color:var(--cream);opacity:.25}
+  .article-visual.v-industry .cat-label{background:var(--cream);color:var(--ink)}
+
+  .article-body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .article-body h3{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.2;letter-spacing:-.3px;font-variation-settings:"SOFT" 50}
+  .article-body p{font-size:14px;color:var(--muted);line-height:1.55;flex:1}
+  .article-meta{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
+  .article-meta .author{display:flex;align-items:center;gap:8px}
+  .article-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--rule)}
+
+  /* EMPTY STATE */
+  .empty-state{text-align:center;padding:80px 0;display:none}
+  .empty-state.show{display:block}
+  .empty-state svg{color:var(--muted);opacity:.5;margin-bottom:20px}
+  .empty-state h3{font-family:var(--serif);font-size:28px;font-weight:400;margin-bottom:10px;font-variation-settings:"SOFT" 50}
+  .empty-state p{color:var(--muted);max-width:360px;margin:0 auto}
+
+  /* NEWSLETTER */
+  .newsletter{background:var(--cream-2);margin:80px 0}
+  .news-inner{background:white;border:1px solid var(--rule);border-radius:28px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .news-inner::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,74,.12),transparent 70%);pointer-events:none}
+  .news-text{position:relative;z-index:2}
+  .news-text .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:14px;display:inline-flex;gap:10px;align-items:center}
+  .news-text .kicker::before{content:'';width:24px;height:1px;background:var(--brass)}
+  .news-text h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,42px);line-height:1.05;font-weight:400;letter-spacing:-.8px;font-variation-settings:"SOFT" 50;margin-bottom:14px}
+  .news-text h2 em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .news-text p{font-size:16px;color:var(--muted)}
+  .news-form{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px}
+  .news-form .input-wrap{display:flex;gap:8px}
+  .news-form input{flex:1;padding:16px 20px;border:1px solid var(--rule);border-radius:50px;background:var(--cream);font-size:14.5px;color:var(--ink);transition:.2s}
+  .news-form input:focus{outline:none;border-color:var(--ink);background:white}
+  .news-form button{padding:16px 28px;border-radius:50px;background:var(--ink);color:var(--cream);font-weight:500;font-size:14px;transition:.25s;white-space:nowrap}
+  .news-form button:hover{background:var(--brass-deep)}
+  .news-form small{font-size:12px;color:var(--muted);text-align:center}
+  .news-success{background:rgba(45,94,62,.1);border:1px solid rgba(45,94,62,.25);color:#2D5E3E;padding:14px;border-radius:12px;font-size:14px;text-align:center;display:none}
+  .news-success.show{display:block;animation:fadeUp .4s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  /* TOPICS CLOUD */
+  .topics-section{padding:60px 0 100px}
+  .topics-head{text-align:center;margin-bottom:40px}
+  .topics-head .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:14px;display:inline-flex;gap:12px;align-items:center}
+  .topics-head .kicker::before,.topics-head .kicker::after{content:'';width:24px;height:1px;background:var(--brass)}
+  .topics-head h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);font-weight:400;font-variation-settings:"SOFT" 50;letter-spacing:-.5px}
+  .topics-cloud{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:780px;margin:0 auto}
+  .topic-tag{padding:10px 18px;border:1px solid var(--rule);border-radius:50px;font-size:13.5px;color:var(--ink);transition:.25s;background:white;cursor:pointer}
+  .topic-tag:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-2px)}
+  .topic-tag.big{font-size:16px;padding:12px 22px;font-family:var(--serif);font-weight:500;font-variation-settings:"SOFT" 50}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:80px 0 30px;position:relative;overflow:hidden}
+  footer::before{content:'HYK';position:absolute;bottom:-80px;right:-40px;font-family:var(--serif);font-size:400px;font-weight:300;opacity:.04;letter-spacing:-20px;line-height:.8;font-variation-settings:"SOFT" 100;pointer-events:none}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(246,241,232,.15);position:relative;z-index:2}
+  .footer-brand .logo{color:var(--cream)}
+  .footer-brand .logo-mark{background:var(--cream);color:var(--ink)}
+  .footer-brand p{margin-top:20px;font-size:14.5px;opacity:.7;line-height:1.65;max-width:36ch}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,241,232,.2);display:grid;place-items:center;transition:.25s}
+  .social:hover{background:var(--brass);border-color:var(--brass)}
+  .footer-col h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--brass);font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{font-size:14.5px;opacity:.75;transition:.2s}
+  .footer-col a:hover{opacity:1;color:var(--brass)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;font-size:13px;opacity:.6;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* RESPONSIVE */
+  @media (max-width:960px){
+    .featured-wrap{grid-template-columns:1fr}
+    .featured-visual{aspect-ratio:16/9}
+    .featured-visual-art{font-size:130px}
+    .featured-content{padding:32px 28px}
+    .articles-grid{grid-template-columns:1fr 1fr;gap:20px}
+    .news-inner{grid-template-columns:1fr;padding:40px 28px;gap:30px}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-top:1px solid var(--rule)}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .nav-cta{display:none}
+    .page-hero{padding:120px 0 40px}
+  }
+  @media (max-width:520px){
+    .articles-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+    .news-form .input-wrap{flex-direction:column}
+    .filter-pills{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 4px 8px}
+    .pill{white-space:nowrap;flex-shrink:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">H</span>
+      <span>HYK Tax<small>CPA · EST. 2009</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Book a Consultation →</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="page-kicker"><span class="dot"></span>HYK Insights</div>
+      <h1>Tax wisdom, <em>decoded.</em></h1>
+      <p class="lede">Plain-language articles from our CPA team on tax planning, bookkeeping, IRS notices, and small-business finance — with zero jargon and zero fluff.</p>
+
+      <div class="search-box">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search articles — e.g., ‘S-Corp election’, ‘CP2000’, ‘depreciation’…" />
+        <button class="search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CATEGORY FILTERS -->
+<div class="filters" id="filters">
+  <div class="container">
+    <div class="filter-pills">
+      <button class="pill active" data-cat="all">All <span class="count">·&nbsp;12</span></button>
+      <button class="pill" data-cat="tax">Tax Planning</button>
+      <button class="pill" data-cat="book">Bookkeeping</button>
+      <button class="pill" data-cat="irs">IRS &amp; Audits</button>
+      <button class="pill" data-cat="biz">Business &amp; Entities</button>
+      <button class="pill" data-cat="industry">Industry Guides</button>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED ARTICLE -->
+<section>
+  <div class="container">
+    <div class="featured-wrap reveal" data-cat="tax">
+      <div class="featured-visual">
+        <div class="featured-visual-art">
+          §199A
+          <small>Qualified Business Income</small>
+        </div>
+      </div>
+      <div class="featured-content">
+        <span class="feat-tag">Featured · Tax Planning</span>
+        <h2>The <em>QBI deduction</em> most small-business owners are leaving on the table</h2>
+        <p>Section 199A can reduce your taxable business income by up to 20% — but the phase-outs, specified service rules, and W-2 wage tests trip up the majority of pass-through owners. Here's a clear breakdown of who qualifies, how the math actually works, and three planning moves to preserve the deduction at higher income levels.</p>
+        <div class="feat-meta">
+          <span>By the HYK Tax team</span>
+          <span class="author-dot"></span>
+          <span>12 min read</span>
+          <span class="author-dot"></span>
+          <span>Updated April 2026</span>
+        </div>
+        <a href="#" class="feat-read">
+          Read the guide
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES GRID -->
+<section>
+  <div class="container">
+    <div class="articles-grid" id="articlesGrid">
+
+      <!-- 1 -->
+      <article class="article reveal" data-cat="tax">
+        <div class="article-visual v-tax">
+          <span class="cat-label">Tax Planning</span>
+          <div class="art-initial">S</div>
+        </div>
+        <div class="article-body">
+          <h3>Should you elect S-Corp status? A 7-point decision tree.</h3>
+          <p>At what revenue does the S-Corp election actually save money? We walk through the break-even math, reasonable compensation, and payroll costs.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Tax Planning</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="article reveal" data-cat="irs">
+        <div class="article-visual v-irs">
+          <span class="cat-label">IRS &amp; Audits</span>
+          <div class="art-initial">IRS</div>
+        </div>
+        <div class="article-body">
+          <h3>You got a CP2000 notice. Now what?</h3>
+          <p>CP2000 notices look scary but they're negotiable. A step-by-step response template that's worked for hundreds of our clients.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>IRS &amp; Audits</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="article reveal" data-cat="book">
+        <div class="article-visual v-book">
+          <span class="cat-label">Bookkeeping</span>
+          <div class="art-initial">Q</div>
+        </div>
+        <div class="article-body">
+          <h3>The monthly close in 90 minutes: a QuickBooks playbook.</h3>
+          <p>How our team closes a month's books in under 90 minutes — the exact checklist, reconciliation shortcuts, and accruals we use.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Bookkeeping</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="article reveal" data-cat="biz">
+        <div class="article-visual v-biz">
+          <span class="cat-label">Business</span>
+          <div class="art-initial">LLC</div>
+        </div>
+        <div class="article-body">
+          <h3>LLC vs S-Corp vs C-Corp: picking the right wrapper.</h3>
+          <p>Entity selection isn't just about taxes. We compare liability, flexibility, fundraising, and exit implications for each structure.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Business</span>
+            <span>11 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="article reveal" data-cat="tax">
+        <div class="article-visual v-tax">
+          <span class="cat-label">Tax Planning</span>
+          <div class="art-initial">§</div>
+        </div>
+        <div class="article-body">
+          <h3>Section 179 vs bonus depreciation in 2026.</h3>
+          <p>With bonus depreciation now at 40%, the calculus changed. Here's when to use §179, when to use bonus, and when to do both.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Tax Planning</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="article reveal" data-cat="industry">
+        <div class="article-visual v-industry">
+          <span class="cat-label">Real Estate</span>
+          <div class="art-initial">RE</div>
+        </div>
+        <div class="article-body">
+          <h3>Real-estate professional status: the audit magnet worth pursuing.</h3>
+          <p>REPS is the key that unlocks unlimited loss deductions — and the single most audited tax position. How to qualify and document it correctly.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Industry · Real Estate</span>
+            <span>14 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="article reveal" data-cat="irs">
+        <div class="article-visual v-irs">
+          <span class="cat-label">IRS &amp; Audits</span>
+          <div class="art-initial">P</div>
+        </div>
+        <div class="article-body">
+          <h3>Penalty abatement: first-time vs reasonable-cause.</h3>
+          <p>The IRS waives more penalties than most taxpayers realize — if you ask correctly. Scripts and criteria for both paths.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>IRS &amp; Audits</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="article reveal" data-cat="book">
+        <div class="article-visual v-book">
+          <span class="cat-label">Bookkeeping</span>
+          <div class="art-initial">COA</div>
+        </div>
+        <div class="article-body">
+          <h3>A chart of accounts that makes tax time painless.</h3>
+          <p>Most COAs are built for one audience — the bookkeeper. Here's how to structure yours so the tax return writes itself.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Bookkeeping</span>
+            <span>9 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="article reveal" data-cat="industry">
+        <div class="article-visual v-industry">
+          <span class="cat-label">Trucking</span>
+          <div class="art-initial">TK</div>
+        </div>
+        <div class="article-body">
+          <h3>The owner-operator's tax deduction checklist.</h3>
+          <p>Per diem, depreciation on the truck, IFTA, fuel tax credits — the deductions most owner-operators miss or under-claim every year.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Industry · Trucking</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="article reveal" data-cat="biz">
+        <div class="article-visual v-biz">
+          <span class="cat-label">Business</span>
+          <div class="art-initial">R</div>
+        </div>
+        <div class="article-body">
+          <h3>Reasonable compensation: the S-Corp's biggest landmine.</h3>
+          <p>Pay yourself too little and you're a target for audit. Too much and you overpay SE tax. Here's how to document the middle.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Business</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="article reveal" data-cat="tax">
+        <div class="article-visual v-tax">
+          <span class="cat-label">Tax Planning</span>
+          <div class="art-initial">Exp</div>
+        </div>
+        <div class="article-body">
+          <h3>Moving abroad? A U.S. expat tax survival guide.</h3>
+          <p>FEIE, FTC, FBAR, FATCA — the alphabet soup of U.S. expat taxation, explained with real numbers and real deadlines.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Tax Planning</span>
+            <span>15 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="article reveal" data-cat="industry">
+        <div class="article-visual v-industry">
+          <span class="cat-label">E-commerce</span>
+          <div class="art-initial">EC</div>
+        </div>
+        <div class="article-body">
+          <h3>Sales tax nexus for Amazon sellers in 2026.</h3>
+          <p>After Wayfair, every state has economic nexus rules — and every FBA seller has inventory in a dozen states. How to stop sleepwalking into penalties.</p>
+          <div class="article-meta">
+            <span class="author"><span class="dot"></span>Industry · E-commerce</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <h3>No articles match your search.</h3>
+      <p>Try a different keyword, or browse a different category above.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <div class="news-inner reveal">
+      <div class="news-text">
+        <div class="kicker">The HYK Dispatch</div>
+        <h2>One thoughtful tax <em>insight</em> in your inbox, every other Tuesday.</h2>
+        <p>No spam, no affiliate pitches. Just the one thing our CPAs wish more business owners knew that week — in under 5 minutes of reading.</p>
+      </div>
+      <form class="news-form" id="newsForm">
+        <div class="news-success" id="newsSuccess">✓ You're in. First issue lands next Tuesday.</div>
+        <div class="input-wrap">
+          <input type="email" id="newsEmail" placeholder="your@email.com" required />
+          <button type="submit">Subscribe</button>
+        </div>
+        <small>Read by 3,800+ founders, owners &amp; advisors. Unsubscribe anytime.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS CLOUD -->
+<section class="topics-section">
+  <div class="container">
+    <div class="topics-head reveal">
+      <div class="kicker">Browse by Topic</div>
+      <h2>Every topic, <em>one click</em> away.</h2>
+    </div>
+    <div class="topics-cloud reveal">
+      <a href="#" class="topic-tag big">S-Corp Election</a>
+      <a href="#" class="topic-tag">1099 vs W-2</a>
+      <a href="#" class="topic-tag big">QBI Deduction</a>
+      <a href="#" class="topic-tag">Home Office</a>
+      <a href="#" class="topic-tag">Section 179</a>
+      <a href="#" class="topic-tag big">Bonus Depreciation</a>
+      <a href="#" class="topic-tag">Retirement Plans</a>
+      <a href="#" class="topic-tag">FBAR &amp; FATCA</a>
+      <a href="#" class="topic-tag big">Sales Tax Nexus</a>
+      <a href="#" class="topic-tag">Real Estate Losses</a>
+      <a href="#" class="topic-tag">Cost Segregation</a>
+      <a href="#" class="topic-tag big">IRS Audit Defense</a>
+      <a href="#" class="topic-tag">Penalty Abatement</a>
+      <a href="#" class="topic-tag">Crypto Taxes</a>
+      <a href="#" class="topic-tag">R&amp;D Credit</a>
+      <a href="#" class="topic-tag big">Entity Selection</a>
+      <a href="#" class="topic-tag">LLC Formation</a>
+      <a href="#" class="topic-tag">Quarterly Estimates</a>
+      <a href="#" class="topic-tag">Expat Taxation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">H</span>
+          <span>HYK Tax<small style="color:rgba(246,241,232,.6)">CPA · EST. 2009</small></span>
+        </a>
+        <p>A Florida-licensed CPA firm delivering tax, accounting, and advisory services to U.S. businesses and individuals — with a dedicated offshore team that keeps your work moving around the clock.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Tax Preparation</a></li>
+          <li><a href="index.html#services">Bookkeeping</a></li>
+          <li><a href="index.html#services">Tax Advisory</a></li>
+          <li><a href="index.html#services">IRS Representation</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Engagement Letter</a></li>
+          <li><a href="#">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HYK Tax, PLLC. All rights reserved. Florida CPA License #AC-XXXXXX.</div>
+      <div>Designed &amp; built with care.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const nav=document.getElementById('nav');
+  const filters=document.getElementById('filters');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>30);
+    filters.classList.toggle('scrolled',window.scrollY>200);
+  });
+
+  /* Burger */
+  const burger=document.getElementById('burger');
+  const navLinks=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>{burger.classList.toggle('open');navLinks.classList.toggle('open')});
+
+  /* Reveal */
+  const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+
+  /* Category filter + search */
+  const pills=document.querySelectorAll('.pill');
+  const articles=document.querySelectorAll('.article');
+  const featured=document.querySelector('.featured-wrap');
+  const emptyState=document.getElementById('emptyState');
+  const searchInput=document.getElementById('searchInput');
+  let activeCat='all';
+
+  function applyFilter(){
+    const q=searchInput.value.toLowerCase().trim();
+    let visible=0;
+
+    articles.forEach(a=>{
+      const catMatch=activeCat==='all'||a.dataset.cat===activeCat;
+      const text=(a.querySelector('h3').textContent+' '+a.querySelector('p').textContent).toLowerCase();
+      const searchMatch=!q||text.includes(q);
+      const show=catMatch&&searchMatch;
+      a.classList.toggle('hidden',!show);
+      if(show)visible++;
+    });
+
+    // Hide featured if filtering or searching
+    const featuredMatch=(activeCat==='all'||featured.dataset.cat===activeCat)&&!q;
+    featured.style.display=featuredMatch?'grid':'none';
+    if(featuredMatch)visible++;
+
+    emptyState.classList.toggle('show',visible===0);
+  }
+
+  pills.forEach(pill=>{
+    pill.addEventListener('click',()=>{
+      pills.forEach(p=>p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCat=pill.dataset.cat;
+      applyFilter();
+    });
+  });
+
+  searchInput.addEventListener('input',applyFilter);
+
+  /* Newsletter form */
+  const newsForm=document.getElementById('newsForm');
+  const newsSuccess=document.getElementById('newsSuccess');
+  newsForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const email=document.getElementById('newsEmail').value.trim();
+    if(!email)return;
+    newsSuccess.classList.add('show');
+    document.getElementById('newsEmail').value='';
+    setTimeout(()=>newsSuccess.classList.remove('show'),5000);
+  });
+
+  /* Topic tags filter */
+  document.querySelectorAll('.topic-tag').forEach(tag=>{
+    tag.addEventListener('click',(e)=>{
+      e.preventDefault();
+      searchInput.value=tag.textContent.trim();
+      searchInput.scrollIntoView({behavior:'smooth',block:'center'});
+      applyFilter();
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Client Portal — HYK Tax | Your Secure Financial Workspace</title>
+<meta name="description" content="Sign in to the HYK Tax secure client portal. Upload documents, e-sign returns, view financials, and message your CPA — all in one encrypted workspace." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F6F1E8;--cream-2:#EFE7D7;--ink:#0B1F33;--ink-soft:#17344E;
+    --brass:#B8894A;--brass-deep:#8E6633;--muted:#5B5952;--rule:#D8CFBC;
+    --success:#2D5E3E;
+    --shadow:0 20px 60px -30px rgba(11,31,51,.35);
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.8;mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  input{font-family:inherit}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.4s;background:transparent}
+  .nav.scrolled{background:rgba(246,241,232,.92);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:26px;font-variation-settings:"SOFT" 30;letter-spacing:-.5px;color:var(--ink)}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;font-variation-settings:"SOFT" 100;position:relative}
+  .logo-mark::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:2.5px;color:var(--muted);font-weight:500;text-transform:uppercase;margin-top:-4px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{position:relative;padding:6px 0;transition:.2s}
+  .nav-links a.active{color:var(--brass-deep)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+  .nav-cta{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:50px;font-size:13.5px;font-weight:500;transition:.25s;letter-spacing:.2px}
+  .nav-cta:hover{background:var(--brass-deep);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .burger{display:none;width:28px;height:22px;position:relative;flex-direction:column;justify-content:space-between}
+  .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+
+  /* HERO + LOGIN */
+  .portal-hero{padding:140px 0 100px;position:relative;overflow:hidden}
+  .portal-hero::before{content:'';position:absolute;top:-10%;left:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(184,137,74,.12),transparent 65%);border-radius:50%;pointer-events:none}
+  .portal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  .page-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:24px;padding:8px 16px;border:1px solid var(--brass);border-radius:50px;background:rgba(184,137,74,.06)}
+  .page-kicker .lock-dot{width:6px;height:6px;border-radius:50%;background:var(--success);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+  .page-title{font-family:var(--serif);font-size:clamp(40px,5.5vw,68px);font-weight:400;line-height:1;letter-spacing:-1.5px;margin-bottom:24px;font-variation-settings:"SOFT" 50,"opsz" 144}
+  .page-title em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .page-lede{font-size:18px;color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:32px}
+  .quick-list{display:flex;flex-direction:column;gap:12px}
+  .quick-list li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink)}
+  .quick-list li svg{color:var(--success);flex-shrink:0}
+
+  /* LOGIN CARD */
+  .login-card{
+    background:white;border-radius:24px;padding:40px;
+    border:1px solid var(--rule);box-shadow:var(--shadow);
+    position:relative;
+  }
+  .login-tabs{display:flex;background:var(--cream);border-radius:12px;padding:5px;margin-bottom:28px}
+  .login-tab{flex:1;padding:12px;text-align:center;border-radius:8px;font-size:14px;font-weight:500;color:var(--muted);transition:all .25s}
+  .login-tab.active{background:var(--ink);color:var(--cream)}
+  .login-head h3{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.1;margin-bottom:6px;font-variation-settings:"SOFT" 50}
+  .login-head p{font-size:14px;color:var(--muted);margin-bottom:24px}
+  .form-group{margin-bottom:18px}
+  .form-label{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:500}
+  .form-control{width:100%;padding:14px 16px;border:1px solid var(--rule);border-radius:10px;font-size:15px;background:var(--cream);color:var(--ink);transition:all .2s}
+  .form-control:focus{outline:none;border-color:var(--ink);background:white;box-shadow:0 0 0 3px rgba(11,31,51,.08)}
+  .form-row-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;font-size:13.5px}
+  .checkbox-wrap{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--muted)}
+  .checkbox-wrap input{width:16px;height:16px;cursor:pointer;accent-color:var(--ink)}
+  .form-row-h a{color:var(--brass-deep);font-weight:500}
+  .form-row-h a:hover{text-decoration:underline}
+  .login-btn{width:100%;background:var(--ink);color:var(--cream);padding:16px;border-radius:10px;font-weight:500;font-size:15px;letter-spacing:.3px;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+  .login-btn:hover{background:var(--brass-deep)}
+  .login-divider{display:flex;align-items:center;gap:16px;margin:24px 0;color:var(--muted);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+  .login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:var(--rule)}
+  .sso-btn{width:100%;padding:14px;border:1px solid var(--rule);border-radius:10px;background:white;font-size:14px;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:all .2s}
+  .sso-btn:hover{background:var(--cream)}
+  .login-footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);text-align:center;font-size:13.5px;color:var(--muted)}
+  .login-footer a{color:var(--brass-deep);font-weight:500}
+  .badges{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+  .badge{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:4px 10px;border:1px solid var(--rule);border-radius:50px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .badge svg{color:var(--success)}
+
+  /* SECTION COMMON */
+  section{padding:90px 0}
+  .section-kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:18px;display:inline-flex;align-items:center;gap:12px}
+  .section-kicker::before{content:'';width:28px;height:1px;background:var(--brass)}
+  .section-title{font-family:var(--serif);font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-1px;font-weight:400;font-variation-settings:"SOFT" 50,"opsz" 144;margin-bottom:16px}
+  .section-title em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .section-head-center{text-align:center;margin-bottom:60px}
+  .section-head-center .section-kicker{justify-content:center}
+  .section-head-center p{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto}
+
+  /* FEATURES */
+  .features{background:var(--cream-2)}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .feature{
+    background:white;border:1px solid var(--rule);
+    border-radius:20px;padding:32px;
+    transition:all .3s;
+  }
+  .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .feature-icon{
+    width:50px;height:50px;border-radius:14px;
+    background:var(--cream-2);color:var(--brass-deep);
+    display:grid;place-items:center;margin-bottom:22px;
+  }
+  .feature h4{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.15;margin-bottom:12px;font-variation-settings:"SOFT" 50}
+  .feature p{font-size:14.5px;color:var(--muted);line-height:1.6}
+
+  /* MOCK DASHBOARD */
+  .dashboard-section{padding:100px 0;overflow:hidden}
+  .dashboard-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center}
+  .dashboard-text h2{margin-bottom:20px}
+  .dashboard-text p{font-size:17px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+  .feature-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .feature-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--ink)}
+  .feature-list li::before{content:'';width:20px;height:20px;border-radius:50%;background:var(--brass);flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+
+  .dashboard-mock{
+    background:white;border-radius:20px;padding:24px;
+    box-shadow:var(--shadow);border:1px solid var(--rule);
+    transform:perspective(1200px) rotateY(-4deg) rotateX(2deg);
+  }
+  .mock-bar{display:flex;align-items:center;gap:6px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .mock-dot{width:11px;height:11px;border-radius:50%;background:#FF5F57}
+  .mock-dot:nth-child(2){background:#FEBC2E}
+  .mock-dot:nth-child(3){background:#28C840}
+  .mock-url{margin-left:16px;font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;background:var(--cream);padding:4px 10px;border-radius:6px}
+  .mock-content{display:grid;grid-template-columns:160px 1fr;gap:18px}
+  .mock-side{background:var(--cream);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:11px}
+  .mock-nav-item{padding:8px 10px;border-radius:6px;color:var(--muted);font-weight:500}
+  .mock-nav-item.active{background:var(--ink);color:var(--cream)}
+  .mock-main{display:flex;flex-direction:column;gap:14px}
+  .mock-greeting{font-family:var(--serif);font-size:18px;font-weight:500;font-variation-settings:"SOFT" 50}
+  .mock-greeting span{color:var(--muted);font-size:11px;font-weight:400;display:block;margin-top:2px;letter-spacing:1px;text-transform:uppercase;font-family:var(--sans)}
+  .mock-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mock-card{background:var(--cream-2);border-radius:10px;padding:14px}
+  .mock-card-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .mock-card-value{font-family:var(--serif);font-size:22px;font-weight:500;font-variation-settings:"SOFT" 60}
+  .mock-card-value .currency{font-size:13px;color:var(--brass);vertical-align:top;margin-right:2px}
+  .mock-card-trend{font-size:9px;color:var(--success);margin-top:4px;font-weight:500}
+  .mock-table{background:var(--cream);border-radius:10px;padding:14px;font-size:11px}
+  .mock-table-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .mock-table-row:last-child{border-bottom:none}
+  .mock-doc{display:flex;align-items:center;gap:8px;font-weight:500}
+  .mock-doc-icon{width:20px;height:20px;border-radius:4px;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-size:8px;font-weight:600}
+  .mock-status{padding:2px 8px;border-radius:50px;font-size:9px;font-weight:600;letter-spacing:.5px}
+  .mock-status.complete{background:rgba(45,94,62,.12);color:var(--success)}
+  .mock-status.pending{background:rgba(184,137,74,.15);color:var(--brass-deep)}
+
+  /* INTEGRATIONS */
+  .integrations{background:var(--cream-2)}
+  .integrations-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin-top:50px}
+  .int-tag{
+    background:white;border:1px solid var(--rule);
+    padding:18px 12px;border-radius:14px;text-align:center;
+    font-size:12.5px;font-weight:500;
+    transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .int-tag:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--brass)}
+  .int-icon{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--cream);display:grid;place-items:center;
+    font-family:var(--serif);font-weight:600;font-size:16px;color:var(--ink-soft);
+    font-variation-settings:"SOFT" 80;
+  }
+
+  /* SECURITY */
+  .security{background:var(--ink);color:var(--cream)}
+  .security .section-kicker{color:var(--brass)}
+  .security .section-kicker::before{background:var(--brass)}
+  .security .section-title{color:var(--cream)}
+  .security-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:50px}
+  .sec-item{
+    background:rgba(255,255,255,.03);border:1px solid rgba(184,137,74,.18);
+    border-radius:16px;padding:28px;
+    transition:all .3s;
+  }
+  .sec-item:hover{background:rgba(184,137,74,.07);border-color:var(--brass)}
+  .sec-icon{width:46px;height:46px;border-radius:12px;background:var(--brass);color:var(--ink);display:grid;place-items:center;margin-bottom:18px}
+  .sec-item h4{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.15;margin-bottom:10px;font-variation-settings:"SOFT" 50}
+  .sec-item p{font-size:13.5px;opacity:.75;line-height:1.55}
+
+  /* SUPPORT BAND */
+  .support-band{padding:80px 0;text-align:center}
+  .support-band h2{font-family:var(--serif);font-size:clamp(28px,3.5vw,40px);font-weight:400;line-height:1.05;margin-bottom:18px;font-variation-settings:"SOFT" 50,"opsz" 144}
+  .support-band h2 em{color:var(--brass-deep);font-style:italic;font-variation-settings:"SOFT" 100}
+  .support-band p{font-size:16px;color:var(--muted);margin-bottom:30px;max-width:520px;margin-left:auto;margin-right:auto}
+  .support-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .support-btn{padding:14px 26px;border-radius:50px;font-weight:500;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+  .support-btn.primary{background:var(--ink);color:var(--cream)}
+  .support-btn.primary:hover{background:var(--brass-deep)}
+  .support-btn.ghost{border:1px solid var(--ink);color:var(--ink)}
+  .support-btn.ghost:hover{background:var(--ink);color:var(--cream)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:80px 0 30px;position:relative;overflow:hidden}
+  footer::before{content:'HYK';position:absolute;bottom:-80px;right:-40px;font-family:var(--serif);font-size:400px;font-weight:300;opacity:.04;letter-spacing:-20px;line-height:.8;font-variation-settings:"SOFT" 100;pointer-events:none}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(246,241,232,.15);position:relative;z-index:2}
+  .footer-brand .logo{color:var(--cream)}
+  .footer-brand .logo-mark{background:var(--cream);color:var(--ink)}
+  .footer-brand p{margin-top:20px;font-size:14.5px;opacity:.7;line-height:1.65;max-width:36ch}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,241,232,.2);display:grid;place-items:center;transition:all .25s}
+  .social:hover{background:var(--brass);border-color:var(--brass)}
+  .footer-col h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--brass);font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{font-size:14.5px;opacity:.75;transition:all .2s}
+  .footer-col a:hover{opacity:1;color:var(--brass)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;font-size:13px;opacity:.6;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media (max-width:960px){
+    .portal-grid,.dashboard-grid{grid-template-columns:1fr;gap:50px}
+    .dashboard-mock{transform:none}
+    .features-grid{grid-template-columns:1fr 1fr}
+    .integrations-grid{grid-template-columns:repeat(4,1fr)}
+    .security-grid{grid-template-columns:1fr 1fr}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-top:1px solid var(--rule)}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .nav-cta{display:none}
+    section{padding:60px 0}
+    .portal-hero{padding:130px 0 60px}
+  }
+  @media (max-width:600px){
+    .features-grid{grid-template-columns:1fr}
+    .integrations-grid{grid-template-columns:repeat(3,1fr)}
+    .security-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+    .login-card{padding:28px 22px}
+    .mock-content{grid-template-columns:1fr}
+    .mock-side{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">H</span>
+      <span>HYK Tax<small>CPA · EST. 2009</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="index.html#process">Process</a>
+      <a href="insights.html">Insights</a>
+      <a href="portal.html" class="active">Portal</a>
+    </div>
+    <a href="book.html" class="nav-cta">Book a Consultation →</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO + LOGIN -->
+<header class="portal-hero">
+  <div class="container portal-grid">
+    <div class="reveal">
+      <div class="page-kicker"><span class="lock-dot"></span>Secure Client Portal</div>
+      <h1 class="page-title">Your <em>secure</em> financial workspace.</h1>
+      <p class="page-lede">Upload documents, e-sign returns, view financials, and message your CPA — all in one encrypted hub. Built on TaxDome with bank-grade security.</p>
+      <ul class="quick-list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          256-bit AES encryption · in transit and at rest
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Two-factor authentication · enforced by default
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          IRS Pub. 4557 compliant · SOC 2 Type II audited
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Mobile and desktop access · works everywhere
+        </li>
+      </ul>
+    </div>
+
+    <div class="login-card reveal">
+      <div class="login-tabs">
+        <button class="login-tab active" data-tab="signin">Sign In</button>
+        <button class="login-tab" data-tab="invite">Have an Invite?</button>
+      </div>
+
+      <div class="login-panel" id="signin-panel">
+        <div class="login-head">
+          <h3>Welcome back.</h3>
+          <p>Enter your credentials to access your portal.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="you@yourcompany.com" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="••••••••••••" />
+        </div>
+
+        <div class="form-row-h">
+          <label class="checkbox-wrap">
+            <input type="checkbox" /> Keep me signed in
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button class="login-btn" id="signinBtn">
+          Sign In Securely
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </button>
+
+        <div class="login-divider">or</div>
+
+        <button class="sso-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 11v3h6.4c-.3 1.5-1.8 4.4-6.4 4.4-3.8 0-7-3.2-7-7s3.2-7 7-7c2.2 0 3.7.9 4.5 1.7l3-3C17.5 1.6 15 .5 12 .5 5.7.5.5 5.7.5 12s5.2 11.5 11.5 11.5c6.6 0 11-4.6 11-11.2 0-.7-.1-1.3-.2-1.8H12z" fill="#4285F4"/></svg>
+          Continue with Google
+        </button>
+
+        <div class="login-footer">
+          New client? Your CPA will email you a portal invitation after onboarding.<br/>
+          Questions? <a href="index.html#contact">Contact support →</a>
+        </div>
+      </div>
+
+      <div class="login-panel" id="invite-panel" style="display:none">
+        <div class="login-head">
+          <h3>Set up your portal.</h3>
+          <p>Enter the invitation code from your welcome email.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Invitation Code</label>
+          <input type="text" class="form-control" placeholder="HYK-XXXX-XXXX" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="you@yourcompany.com" />
+        </div>
+
+        <button class="login-btn">
+          Continue
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+
+        <div class="login-footer">
+          Don't have an invite? <a href="book.html">Book a consultation →</a>
+        </div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          SOC 2
+        </span>
+        <span class="badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          AES-256
+        </span>
+        <span class="badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          IRS 4557
+        </span>
+        <span class="badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          GDPR
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-kicker">What's Inside</div>
+      <h2 class="section-title">Everything in one place — <em>nothing in your inbox</em>.</h2>
+      <p>No more email chains. No more "did you get my W-2?" follow-ups. Your portal is the single source of truth.</p>
+    </div>
+
+    <div class="features-grid reveal">
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <h4>Document upload &amp; vault</h4>
+        <p>Drag and drop receipts, W-2s, 1099s, K-1s. Everything is organized by year and tagged. Bank-grade encryption end-to-end.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13l2 2 4-4"/></svg></div>
+        <h4>E-sign &amp; approve returns</h4>
+        <p>Review your prepared return, leave comments, and e-sign with legally binding signatures. No printers required.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>Direct messaging</h4>
+        <p>Ask your CPA a question without crafting a formal email. Threads stay organized by year, return, or topic.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+        <h4>Live financial dashboard</h4>
+        <p>Monthly P&amp;L, balance sheet, and tax projections updated as your books are reconciled. Always know where you stand.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4>Smart task list</h4>
+        <p>See exactly what's needed from you, when it's due, and what we're working on. No surprise April requests.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 12l4-4 4 4 5-5"/></svg></div>
+        <h4>Tax history archive</h4>
+        <p>Every return, every supporting document, every memo from every year — searchable and downloadable in one click.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD MOCK -->
+<section class="dashboard-section">
+  <div class="container dashboard-grid">
+    <div class="dashboard-text reveal">
+      <div class="section-kicker">Your Dashboard</div>
+      <h2 class="section-title">Designed for the way you <em>actually</em> work.</h2>
+      <p>The portal is built around what business owners and individual filers actually need to see — not a generic accounting tool, not a wall of spreadsheets.</p>
+      <ul class="feature-list">
+        <li>Real-time YTD revenue, expenses, and net income</li>
+        <li>Quarterly tax estimates with projected liability</li>
+        <li>Outstanding requests from your CPA, sorted by urgency</li>
+        <li>Document hub with full version history</li>
+        <li>Direct messaging with read receipts</li>
+        <li>Mobile-first design that works on any device</li>
+      </ul>
+    </div>
+
+    <div class="dashboard-mock reveal">
+      <div class="mock-bar">
+        <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+        <div class="mock-url">portal.hyktax.com/dashboard</div>
+      </div>
+      <div class="mock-content">
+        <div class="mock-side">
+          <div style="font-family:var(--serif);font-size:13px;font-weight:500;margin-bottom:10px">HYK Portal</div>
+          <div class="mock-nav-item active">📊 Dashboard</div>
+          <div class="mock-nav-item">📁 Documents</div>
+          <div class="mock-nav-item">✍️ Signatures</div>
+          <div class="mock-nav-item">💬 Messages</div>
+          <div class="mock-nav-item">🧾 Returns</div>
+          <div class="mock-nav-item">⚙️ Settings</div>
+        </div>
+        <div class="mock-main">
+          <div class="mock-greeting">Good morning, Miranda.<span>Q2 · April 2026</span></div>
+          <div class="mock-cards">
+            <div class="mock-card">
+              <div class="mock-card-label">YTD Revenue</div>
+              <div class="mock-card-value"><span class="currency">$</span>184,250</div>
+              <div class="mock-card-trend">▲ 23% YoY</div>
+            </div>
+            <div class="mock-card">
+              <div class="mock-card-label">Q2 Tax Est.</div>
+              <div class="mock-card-value"><span class="currency">$</span>8,420</div>
+              <div class="mock-card-trend" style="color:var(--brass-deep)">Due Jun 16</div>
+            </div>
+          </div>
+          <div class="mock-table">
+            <div style="font-weight:600;margin-bottom:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Recent Documents</div>
+            <div class="mock-table-row">
+              <div class="mock-doc"><div class="mock-doc-icon">PDF</div>2025 Form 1120-S</div>
+              <span class="mock-status complete">Signed</span>
+            </div>
+            <div class="mock-table-row">
+              <div class="mock-doc"><div class="mock-doc-icon">XLS</div>March P&amp;L</div>
+              <span class="mock-status complete">Reviewed</span>
+            </div>
+            <div class="mock-table-row">
+              <div class="mock-doc"><div class="mock-doc-icon">PDF</div>Q2 Estimated Tax</div>
+              <span class="mock-status pending">Action Needed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-kicker">Plays Well With Others</div>
+      <h2 class="section-title">Connects with <em>your existing</em> tools.</h2>
+      <p>The portal syncs with the platforms you already use — so we work in your data, not against it.</p>
+    </div>
+    <div class="integrations-grid reveal">
+      <div class="int-tag"><div class="int-icon">QB</div>QuickBooks</div>
+      <div class="int-tag"><div class="int-icon">X</div>Xero</div>
+      <div class="int-tag"><div class="int-icon">G</div>Gusto</div>
+      <div class="int-tag"><div class="int-icon">A</div>ADP</div>
+      <div class="int-tag"><div class="int-icon">S</div>Stripe</div>
+      <div class="int-tag"><div class="int-icon">SH</div>Shopify</div>
+      <div class="int-tag"><div class="int-icon">$</div>Square</div>
+      <div class="int-tag"><div class="int-icon">B</div>Bill.com</div>
+      <div class="int-tag"><div class="int-icon">PP</div>PayPal</div>
+      <div class="int-tag"><div class="int-icon">P</div>Plaid</div>
+      <div class="int-tag"><div class="int-icon">AV</div>Avalara</div>
+      <div class="int-tag"><div class="int-icon">G</div>Google Drive</div>
+      <div class="int-tag"><div class="int-icon">D</div>Dropbox</div>
+      <div class="int-tag"><div class="int-icon">M</div>Microsoft 365</div>
+      <div class="int-tag"><div class="int-icon">SF</div>Salesforce</div>
+      <div class="int-tag"><div class="int-icon">+</div>And more</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-kicker">Security First</div>
+      <h2 class="section-title">Built with the rigor your data <em>actually requires</em>.</h2>
+      <p style="color:rgba(246,241,232,.7)">Your tax data is among the most sensitive information about your life and business. We treat it accordingly — with controls audited annually by independent third parties.</p>
+    </div>
+    <div class="security-grid reveal">
+      <div class="sec-item">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>AES-256 Encryption</h4>
+        <p>Bank-grade encryption protects every document in transit (TLS 1.3) and at rest. Your CPA can read it. Nobody else can.</p>
+      </div>
+      <div class="sec-item">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>SOC 2 Type II</h4>
+        <p>Our portal infrastructure is independently audited annually for security, availability, processing integrity, and confidentiality.</p>
+      </div>
+      <div class="sec-item">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h4>Two-Factor Auth</h4>
+        <p>Required for every account. Use SMS, an authenticator app, or a security key. Your password alone is never enough.</p>
+      </div>
+      <div class="sec-item">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <h4>IRS Pub. 4557</h4>
+        <p>Full compliance with the IRS data security framework for tax professionals — including incident response and breach reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT BAND -->
+<section class="support-band">
+  <div class="container reveal">
+    <h2>Need help <em>getting in</em>?</h2>
+    <p>If you've lost your invitation, can't reset your password, or need a fresh portal setup — we'll get you sorted within the same business day.</p>
+    <div class="support-actions">
+      <a href="index.html#contact" class="support-btn primary">
+        Contact Support
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="book.html" class="support-btn ghost">Book a 15-min call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">H</span>
+          <span>HYK Tax<small style="color:rgba(246,241,232,.6)">CPA · EST. 2009</small></span>
+        </a>
+        <p>A Florida-licensed CPA firm delivering tax, accounting, and advisory services to U.S. businesses and individuals — with a dedicated offshore team that keeps your work moving around the clock.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/></svg></a>
+          <a href="#" class="social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Tax Preparation</a></li>
+          <li><a href="index.html#services">Bookkeeping</a></li>
+          <li><a href="index.html#services">Tax Advisory</a></li>
+          <li><a href="index.html#services">IRS Representation</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="portal.html">Client Portal</a></li>
+          <li><a href="book.html">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Engagement Letter</a></li>
+          <li><a href="#">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HYK Tax, PLLC. All rights reserved. Florida CPA License #AC-XXXXXX.</div>
+      <div>Designed &amp; built with care.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
+
+  // Login tabs
+  document.querySelectorAll('.login-tab').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.login-tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const target = t.dataset.tab;
+      document.getElementById('signin-panel').style.display = target === 'signin' ? 'block' : 'none';
+      document.getElementById('invite-panel').style.display = target === 'invite' ? 'block' : 'none';
+    });
+  });
+
+  // Sign-in click feedback (demo)
+  document.getElementById('signinBtn').addEventListener('click', (e) => {
+    const email = document.getElementById('email').value.trim();
+    const pw = document.getElementById('password').value.trim();
+    if (!email || !pw) {
+      alert('Please enter your email and password.\n\n(Demo only — wire to your TaxDome / Box / Auth0 backend in production.)');
+      return;
+    }
+    e.target.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Signing in...';
+    setTimeout(() => alert('Demo: connect this to TaxDome, Box, or your auth provider in production.'), 800);
+  });
+
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }}), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

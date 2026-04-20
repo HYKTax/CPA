@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — HYK Tax | Transparent Flat-Fee CPA Services</title>
+<meta name="description" content="Honest, flat-fee pricing for tax preparation, bookkeeping, advisory, and IRS representation. No hourly surprises." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F6F1E8;--cream-2:#EFE7D7;--ink:#0B1F33;--ink-soft:#17344E;
+    --brass:#B8894A;--brass-deep:#8E6633;--muted:#5B5952;--rule:#D8CFBC;
+    --shadow:0 20px 60px -30px rgba(11,31,51,.35);
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.8;mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.4s;background:transparent}
+  .nav.scrolled{background:rgba(246,241,232,.92);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:26px;font-variation-settings:"SOFT" 30;letter-spacing:-.5px;color:var(--ink)}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;font-variation-settings:"SOFT" 100;position:relative}
+  .logo-mark::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:2.5px;color:var(--muted);font-weight:500;text-transform:uppercase;margin-top:-4px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{position:relative;padding:6px 0;transition:.2s}
+  .nav-links a.active{color:var(--brass-deep)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+  .nav-cta{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:50px;font-size:13.5px;font-weight:500;transition:.25s;letter-spacing:.2px}
+  .nav-cta:hover{background:var(--brass-deep);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .burger{display:none;width:28px;height:22px;position:relative;flex-direction:column;justify-content:space-between}
+  .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+
+  /* HERO */
+  .page-hero{padding:160px 0 60px;text-align:center;position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(184,137,74,.12),transparent 60%);pointer-events:none}
+  .page-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:24px;padding:8px 16px;border:1px solid var(--brass);border-radius:50px;background:rgba(184,137,74,.06)}
+  .page-kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--brass)}
+  .page-hero h1{font-family:var(--serif);font-size:clamp(44px,6vw,84px);line-height:.98;letter-spacing:-1.5px;font-weight:400;font-variation-settings:"SOFT" 50,"opsz" 144;margin-bottom:28px;max-width:18ch;margin-inline:auto}
+  .page-hero h1 em{font-style:italic;font-weight:300;color:var(--brass-deep);font-variation-settings:"SOFT" 100,"opsz" 144}
+  .page-hero .lede{font-size:19px;color:var(--muted);max-width:620px;margin:0 auto 40px}
+
+  /* BILLING TOGGLE */
+  .toggle-wrap{display:inline-flex;align-items:center;gap:16px;margin-bottom:60px}
+  .toggle-box{background:white;border:1px solid var(--rule);border-radius:50px;padding:6px;display:inline-flex;position:relative}
+  .toggle-box button{padding:12px 28px;font-size:14px;font-weight:500;color:var(--muted);border-radius:50px;position:relative;z-index:2;transition:color .3s}
+  .toggle-box button.active{color:var(--cream)}
+  .toggle-pill{position:absolute;top:6px;bottom:6px;background:var(--ink);border-radius:50px;transition:all .4s cubic-bezier(.77,0,.18,1);z-index:1}
+  .save-badge{background:var(--brass);color:white;font-size:11px;font-weight:600;padding:5px 10px;border-radius:50px;letter-spacing:.5px}
+
+  /* PRICING CARDS */
+  section{padding:80px 0;position:relative}
+  .section-lead{text-align:center;margin-bottom:60px}
+  .section-lead .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass-deep);font-weight:500;margin-bottom:16px;display:inline-flex;align-items:center;gap:12px}
+  .section-lead .kicker::before,.section-lead .kicker::after{content:'';width:24px;height:1px;background:var(--brass)}
+  .section-lead h2{font-family:var(--serif);font-size:clamp(32px,3.8vw,48px);line-height:1.05;letter-spacing:-.8px;font-weight:400;font-variation-settings:"SOFT" 50;max-width:20ch;margin:0 auto}
+  .section-lead h2 em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .section-lead p{font-size:16px;color:var(--muted);max-width:520px;margin:18px auto 0}
+
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .price-card{background:white;border:1px solid var(--rule);border-radius:24px;padding:40px 32px;position:relative;display:flex;flex-direction:column;transition:all .3s}
+  .price-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .price-card.featured{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:scale(1.03)}
+  .price-card.featured:hover{transform:scale(1.03) translateY(-6px)}
+  .featured-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--brass);color:white;font-size:11px;font-weight:600;padding:8px 18px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;box-shadow:0 8px 20px -10px rgba(184,137,74,.7)}
+  .tier-name{font-family:var(--serif);font-size:24px;font-weight:400;font-variation-settings:"SOFT" 50;margin-bottom:6px}
+  .tier-for{font-size:13px;color:var(--muted);margin-bottom:30px}
+  .price-card.featured .tier-for{color:rgba(246,241,232,.65)}
+  .tier-price{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+  .tier-price .currency{font-family:var(--serif);font-size:24px;color:var(--brass-deep)}
+  .price-card.featured .currency{color:var(--brass)}
+  .tier-price .amount{font-family:var(--serif);font-size:64px;font-weight:400;line-height:1;font-variation-settings:"SOFT" 60;letter-spacing:-1.5px}
+  .tier-price .period{font-size:14px;color:var(--muted)}
+  .price-card.featured .period{color:rgba(246,241,232,.65)}
+  .tier-original{text-decoration:line-through;color:var(--muted);font-size:14px;margin-bottom:28px;min-height:20px}
+  .price-card.featured .tier-original{color:rgba(246,241,232,.5)}
+  .tier-cta{display:block;text-align:center;padding:15px;border-radius:50px;font-weight:500;font-size:14.5px;letter-spacing:.2px;transition:.25s;border:1px solid var(--ink);color:var(--ink);margin-bottom:32px}
+  .tier-cta:hover{background:var(--ink);color:var(--cream)}
+  .price-card.featured .tier-cta{background:var(--brass);border-color:var(--brass);color:white}
+  .price-card.featured .tier-cta:hover{background:var(--brass-deep);border-color:var(--brass-deep)}
+  .tier-features{list-style:none;display:flex;flex-direction:column;gap:14px;flex:1}
+  .tier-features li{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;line-height:1.5}
+  .tier-features li svg{flex-shrink:0;color:var(--brass-deep);margin-top:3px}
+  .price-card.featured li svg{color:var(--brass)}
+  .tier-features .dim{opacity:.45;text-decoration:line-through}
+  .tier-features .divider{height:1px;background:var(--rule);margin:8px 0;padding:0}
+  .price-card.featured .divider{background:rgba(246,241,232,.15)}
+  .tier-features .divider svg{display:none}
+
+  /* TAX RETURNS TABLE */
+  .returns-section{background:var(--cream-2)}
+  .returns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .return-card{background:white;border:1px solid var(--rule);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:.25s}
+  .return-card:hover{border-color:var(--brass);transform:translateY(-3px)}
+  .return-card .ret-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .return-card h4{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;font-variation-settings:"SOFT" 50}
+  .return-card .ret-price{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1;color:var(--brass-deep);font-variation-settings:"SOFT" 50}
+  .return-card .ret-price .from{display:block;font-family:var(--sans);font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;font-weight:500}
+  .return-card p{font-size:14px;color:var(--muted);line-height:1.55}
+  .return-card .forms{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+  .return-card .forms span{font-size:11px;padding:4px 10px;background:var(--cream);border-radius:50px;color:var(--ink);font-weight:500;letter-spacing:.3px}
+
+  /* ADVISORY */
+  .advisory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .adv-card{background:white;border:1px solid var(--rule);border-radius:20px;padding:36px 30px;position:relative;transition:.3s}
+  .adv-card:hover{border-color:var(--ink);box-shadow:var(--shadow)}
+  .adv-card .adv-icon{width:54px;height:54px;border-radius:14px;background:var(--cream-2);color:var(--brass-deep);display:grid;place-items:center;margin-bottom:24px}
+  .adv-card h4{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:10px;font-variation-settings:"SOFT" 50}
+  .adv-card > p{font-size:14.5px;color:var(--muted);margin-bottom:24px}
+  .adv-card .adv-price{font-family:var(--serif);font-size:36px;font-weight:400;font-variation-settings:"SOFT" 50;line-height:1;margin-bottom:4px}
+  .adv-card .adv-price .cur{color:var(--brass-deep);font-size:22px;vertical-align:top}
+  .adv-card .adv-period{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .adv-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .adv-card li{font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+  .adv-card li::before{content:'→';color:var(--brass);flex-shrink:0}
+
+  /* ADD-ONS */
+  .addon-section{background:var(--ink);color:var(--cream)}
+  .addon-section .section-lead .kicker{color:var(--brass)}
+  .addon-section .section-lead .kicker::before,.addon-section .section-lead .kicker::after{background:var(--brass)}
+  .addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .addon{background:rgba(255,255,255,.04);border:1px solid rgba(246,241,232,.12);border-radius:16px;padding:24px;transition:.25s}
+  .addon:hover{background:rgba(184,137,74,.08);border-color:var(--brass)}
+  .addon .a-name{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:4px;font-variation-settings:"SOFT" 50}
+  .addon .a-desc{font-size:13px;opacity:.7;margin-bottom:16px;line-height:1.5}
+  .addon .a-price{font-family:var(--serif);font-size:24px;color:var(--brass);font-variation-settings:"SOFT" 60}
+  .addon .a-price .u{font-size:12px;color:rgba(246,241,232,.6);font-family:var(--sans);margin-left:4px}
+
+  /* COMPARISON TABLE */
+  .compare-section{overflow-x:auto}
+  .compare-table{width:100%;border-collapse:separate;border-spacing:0;background:white;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);min-width:700px}
+  .compare-table th,.compare-table td{padding:18px 24px;text-align:left;border-bottom:1px solid var(--rule);font-size:14.5px}
+  .compare-table thead th{background:var(--ink);color:var(--cream);font-weight:500;font-size:14px;letter-spacing:.3px;border-bottom:none}
+  .compare-table thead th.featured-col{background:var(--brass)}
+  .compare-table tbody tr:last-child td{border-bottom:none}
+  .compare-table tbody tr:hover{background:var(--cream)}
+  .compare-table td.check{text-align:center;color:var(--brass-deep);font-size:18px}
+  .compare-table td.no{text-align:center;color:var(--rule);font-size:18px}
+  .compare-table td.feat-col{background:rgba(184,137,74,.06);font-weight:500}
+  .compare-table .row-head{font-weight:500;background:var(--cream);font-family:var(--serif);font-size:16px;font-variation-settings:"SOFT" 50}
+
+  /* FAQ */
+  .faq-section{background:var(--cream-2)}
+  .faq-list{max-width:820px;margin:0 auto}
+  .faq-item{border-bottom:1px solid var(--rule);padding:24px 0;cursor:pointer}
+  .faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.25;font-variation-settings:"SOFT" 50}
+  .faq-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);flex-shrink:0;display:grid;place-items:center;transition:.3s;position:relative;background:white}
+  .faq-toggle::before,.faq-toggle::after{content:'';position:absolute;background:var(--ink);border-radius:2px;transition:transform .3s}
+  .faq-toggle::before{width:12px;height:2px}
+  .faq-toggle::after{width:2px;height:12px}
+  .faq-item.open .faq-toggle{background:var(--ink)}
+  .faq-item.open .faq-toggle::before{background:var(--cream)}
+  .faq-item.open .faq-toggle::after{transform:rotate(90deg);background:var(--cream)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,margin .3s;font-size:15px;color:var(--muted);line-height:1.65}
+  .faq-item.open .faq-a{max-height:300px;margin-top:18px}
+
+  /* CTA BAND */
+  .cta-band{padding:80px 0;text-align:center;background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+  .cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,74,.2),transparent 60%);pointer-events:none}
+  .cta-band h2{font-family:var(--serif);font-size:clamp(36px,4.5vw,56px);line-height:1.05;font-weight:400;font-variation-settings:"SOFT" 50;margin-bottom:20px;letter-spacing:-.8px;position:relative;z-index:2}
+  .cta-band h2 em{color:var(--brass);font-style:italic;font-variation-settings:"SOFT" 100}
+  .cta-band p{font-size:18px;opacity:.75;margin-bottom:36px;max-width:580px;margin-inline:auto;position:relative;z-index:2}
+  .cta-band .btn-primary{position:relative;z-index:2;background:var(--brass);color:white;padding:18px 38px;border-radius:50px;font-weight:500;font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:.3s}
+  .cta-band .btn-primary:hover{background:var(--cream);color:var(--ink);transform:translateY(-2px)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:80px 0 30px;border-top:1px solid rgba(246,241,232,.1);position:relative;overflow:hidden}
+  footer::before{content:'HYK';position:absolute;bottom:-80px;right:-40px;font-family:var(--serif);font-size:400px;font-weight:300;opacity:.04;letter-spacing:-20px;line-height:.8;font-variation-settings:"SOFT" 100;pointer-events:none}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(246,241,232,.15);position:relative;z-index:2}
+  .footer-brand .logo{color:var(--cream)}
+  .footer-brand .logo-mark{background:var(--cream);color:var(--ink)}
+  .footer-brand p{margin-top:20px;font-size:14.5px;opacity:.7;line-height:1.65;max-width:36ch}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,241,232,.2);display:grid;place-items:center;transition:.25s}
+  .social:hover{background:var(--brass);border-color:var(--brass)}
+  .footer-col h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--brass);font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{font-size:14.5px;opacity:.75;transition:.2s}
+  .footer-col a:hover{opacity:1;color:var(--brass)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;font-size:13px;opacity:.6;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* RESPONSIVE */
+  @media (max-width:960px){
+    .price-grid,.returns-grid,.advisory-grid{grid-template-columns:1fr;gap:20px}
+    .price-card.featured{transform:none}
+    .price-card.featured:hover{transform:translateY(-6px)}
+    .addons-grid{grid-template-columns:1fr 1fr}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-top:1px solid var(--rule)}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .nav-cta{display:none}
+    section{padding:60px 0}
+    .page-hero{padding:120px 0 40px}
+  }
+  @media (max-width:520px){
+    .addons-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">H</span>
+      <span>HYK Tax<small>CPA · EST. 2009</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="insights.html">Insights</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Book a Consultation →</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="page-kicker"><span class="dot"></span>Transparent Pricing</div>
+      <h1>Flat fees. No <em>hourly</em> games.<br>Just the real number.</h1>
+      <p class="lede">You'll know exactly what you pay — and exactly what you get — before we start. Most engagements close inside the estimate. That's not a promise; it's a pattern.</p>
+
+      <div class="toggle-wrap">
+        <div class="toggle-box" id="billingToggle">
+          <div class="toggle-pill" id="togglePill"></div>
+          <button class="active" data-bill="monthly">Monthly</button>
+          <button data-bill="annual">Annual <span class="save-badge">Save 15%</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BOOKKEEPING TIERS -->
+<section id="bookkeeping">
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">Monthly Bookkeeping</div>
+      <h2>Three tiers for <em>clean, reliable</em> books.</h2>
+      <p>Pricing below scales with monthly transaction volume. All plans include a dedicated bookkeeper, CPA oversight, and month-close reports.</p>
+    </div>
+
+    <div class="price-grid reveal">
+      <!-- Essentials -->
+      <div class="price-card">
+        <div class="tier-name">Essentials</div>
+        <div class="tier-for">Solo operators &amp; side businesses</div>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="395" data-annual="336">395</span>
+          <span class="period">/ mo</span>
+        </div>
+        <div class="tier-original" data-monthly="" data-annual="Billed $4,032/yr · save $708"></div>
+        <a href="index.html#contact" class="tier-cta">Start Essentials</a>
+        <ul class="tier-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 100 transactions / mo</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>2 bank / credit accounts</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly reconciliation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>P&amp;L + Balance Sheet</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Email support</li>
+          <li class="divider"></li>
+          <li class="dim">Accounts receivable / payable</li>
+          <li class="dim">Quarterly tax projection</li>
+          <li class="dim">Dedicated account manager</li>
+        </ul>
+      </div>
+
+      <!-- Growth (Featured) -->
+      <div class="price-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-for">Established small businesses</div>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="795" data-annual="676">795</span>
+          <span class="period">/ mo</span>
+        </div>
+        <div class="tier-original" data-monthly="" data-annual="Billed $8,112/yr · save $1,428"></div>
+        <a href="index.html#contact" class="tier-cta">Start Growth</a>
+        <ul class="tier-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 400 transactions / mo</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited accounts</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Accounts receivable / payable</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cash-flow reporting</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Quarterly tax projection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Slack / email + 1 monthly call</li>
+          <li class="divider"></li>
+          <li class="dim">Class / department tracking</li>
+          <li class="dim">Weekly check-ins</li>
+        </ul>
+      </div>
+
+      <!-- Scale -->
+      <div class="price-card">
+        <div class="tier-name">Scale</div>
+        <div class="tier-for">Multi-entity &amp; complex ops</div>
+        <div class="tier-price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="1495" data-annual="1271">1,495</span>
+          <span class="period">/ mo</span>
+        </div>
+        <div class="tier-original" data-monthly="" data-annual="Billed $15,252/yr · save $2,688"></div>
+        <a href="index.html#contact" class="tier-cta">Start Scale</a>
+        <ul class="tier-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited transactions</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-entity consolidation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Class / department tracking</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cash-flow forecasting</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Weekly check-ins</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Custom dashboards</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Priority turnaround</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAX RETURNS -->
+<section class="returns-section">
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">Tax Returns · One-Time</div>
+      <h2>Flat-fee <em>tax preparation</em>, priced by return type.</h2>
+      <p>Every return is prepared, reviewed twice, and e-filed by a credentialed CPA or EA.</p>
+    </div>
+
+    <div class="returns-grid reveal">
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>Individual</h4></div>
+          <div class="ret-price"><span class="from">From</span>$295</div>
+        </div>
+        <p>For W-2 earners, itemizers, self-employed, and expats with FBAR / FATCA requirements.</p>
+        <div class="forms"><span>1040</span><span>Schedule A/B/C/D/E</span><span>1040-NR</span><span>FBAR</span></div>
+      </div>
+
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>Sole Prop / Single-Member LLC</h4></div>
+          <div class="ret-price"><span class="from">From</span>$495</div>
+        </div>
+        <p>Pass-through business returns filed alongside your personal 1040 with full Schedule C.</p>
+        <div class="forms"><span>1040</span><span>Schedule C</span><span>SE</span><span>8829</span></div>
+      </div>
+
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>Partnership</h4></div>
+          <div class="ret-price"><span class="from">From</span>$895</div>
+        </div>
+        <p>Multi-partner entities with full K-1 issuance, capital account tracking, and special allocations.</p>
+        <div class="forms"><span>1065</span><span>K-1s</span><span>K-2/K-3</span></div>
+      </div>
+
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>S-Corporation</h4></div>
+          <div class="ret-price"><span class="from">From</span>$995</div>
+        </div>
+        <p>For S-Corps including reasonable-compensation analysis, basis tracking, and distributions review.</p>
+        <div class="forms"><span>1120-S</span><span>K-1s</span><span>2553</span></div>
+      </div>
+
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>C-Corporation</h4></div>
+          <div class="ret-price"><span class="from">From</span>$1,295</div>
+        </div>
+        <p>Regular corporations including consolidated returns, M-1/M-3 reconciliation, and state filings.</p>
+        <div class="forms"><span>1120</span><span>Schedule M</span><span>Multi-state</span></div>
+      </div>
+
+      <div class="return-card">
+        <div class="ret-head">
+          <div><h4>Non-Profit</h4></div>
+          <div class="ret-price"><span class="from">From</span>$795</div>
+        </div>
+        <p>For 501(c)(3) organizations of all sizes — private foundations, public charities, and chapters.</p>
+        <div class="forms"><span>990</span><span>990-EZ</span><span>990-PF</span><span>990-T</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY -->
+<section id="advisory">
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">Tax Advisory &amp; Planning</div>
+      <h2>Strategy that pays <em>more than</em> it costs.</h2>
+      <p>Quarterly engagements for business owners who want to stop overpaying the IRS — and start using the code the way it was written.</p>
+    </div>
+
+    <div class="advisory-grid reveal">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Strategy Session</h4>
+        <p>A one-time deep-dive. Ideal before a major transaction, sale, or entity change.</p>
+        <div class="adv-price"><span class="cur">$</span>750</div>
+        <div class="adv-period">One-time · 2-hour engagement</div>
+        <ul>
+          <li>Entity &amp; compensation review</li>
+          <li>Tax-saving strategies report</li>
+          <li>Written action plan</li>
+          <li>30 days of follow-up</li>
+        </ul>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h4>Quarterly Advisory</h4>
+        <p>Ongoing tax-planning partnership for business owners with $250K+ in annual revenue.</p>
+        <div class="adv-price"><span class="cur">$</span><span data-monthly-advisory="1250" data-annual-advisory="1062">1,250</span></div>
+        <div class="adv-period">Per quarter · paid quarterly</div>
+        <ul>
+          <li>4 quarterly planning calls</li>
+          <li>Year-end tax projection</li>
+          <li>Estimated payments calc</li>
+          <li>Unlimited email access</li>
+        </ul>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>Fractional CFO</h4>
+        <p>Monthly financial leadership for growth-stage companies — forecasting, KPIs, board decks.</p>
+        <div class="adv-price"><span class="cur">$</span><span data-monthly-advisory="2950" data-annual-advisory="2507">2,950</span></div>
+        <div class="adv-period">Per month · 10-hr retainer</div>
+        <ul>
+          <li>Monthly financial review</li>
+          <li>13-week cash forecast</li>
+          <li>Board &amp; investor reports</li>
+          <li>KPI dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addon-section">
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">À La Carte</div>
+      <h2 style="color:var(--cream)">Add <em>exactly</em> what you need.</h2>
+      <p style="color:rgba(246,241,232,.7)">Attach any of the following to your engagement — or buy them standalone.</p>
+    </div>
+
+    <div class="addons-grid reveal">
+      <div class="addon">
+        <div class="a-name">S-Corp Election</div>
+        <div class="a-desc">Form 2553 prep &amp; filing with IRS, including late-election relief.</div>
+        <div class="a-price">$250<span class="u">flat</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">LLC Formation</div>
+        <div class="a-desc">Articles, EIN, operating agreement — any U.S. state.</div>
+        <div class="a-price">$599<span class="u">all-in</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">Sales Tax Nexus Study</div>
+        <div class="a-desc">State-by-state nexus analysis with registration plan.</div>
+        <div class="a-price">$895<span class="u">one-time</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">Payroll Setup</div>
+        <div class="a-desc">Gusto, ADP, or QuickBooks Payroll — full onboarding.</div>
+        <div class="a-price">$295<span class="u">one-time</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">IRS Notice Response</div>
+        <div class="a-desc">CP2000, CP504, audit letters — EA representation.</div>
+        <div class="a-price">$495<span class="u">per notice</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">QuickBooks Clean-Up</div>
+        <div class="a-desc">Catch-up bookkeeping for up to 12 prior months.</div>
+        <div class="a-price">$125<span class="u">/ mo reviewed</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">1099 Preparation</div>
+        <div class="a-desc">Vendor W-9 collection, 1099-NEC / MISC prep &amp; e-file.</div>
+        <div class="a-price">$25<span class="u">per 1099</span></div>
+      </div>
+      <div class="addon">
+        <div class="a-name">Amended Return</div>
+        <div class="a-desc">1040-X prep for up to 3 years back.</div>
+        <div class="a-price">$495<span class="u">per year</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">Side-by-Side</div>
+      <h2>Compare <em>Bookkeeping</em> tiers in detail.</h2>
+    </div>
+
+    <div class="compare-section reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Features</th>
+            <th>Essentials</th>
+            <th class="featured-col">Growth</th>
+            <th>Scale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-head"><td colspan="4">Core Bookkeeping</td></tr>
+          <tr><td>Monthly transactions</td><td>Up to 100</td><td class="feat-col">Up to 400</td><td>Unlimited</td></tr>
+          <tr><td>Bank &amp; CC accounts</td><td>2</td><td class="feat-col">Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Monthly reconciliation</td><td class="check">✓</td><td class="check feat-col">✓</td><td class="check">✓</td></tr>
+          <tr><td>P&amp;L + Balance Sheet</td><td class="check">✓</td><td class="check feat-col">✓</td><td class="check">✓</td></tr>
+          <tr><td>Accounts receivable / payable</td><td class="no">—</td><td class="check feat-col">✓</td><td class="check">✓</td></tr>
+
+          <tr class="row-head"><td colspan="4">Reporting &amp; Insights</td></tr>
+          <tr><td>Cash-flow reporting</td><td class="no">—</td><td class="check feat-col">✓</td><td class="check">✓</td></tr>
+          <tr><td>Cash-flow forecasting</td><td class="no">—</td><td class="no feat-col">—</td><td class="check">✓</td></tr>
+          <tr><td>Class / department tracking</td><td class="no">—</td><td class="no feat-col">—</td><td class="check">✓</td></tr>
+          <tr><td>Custom dashboards</td><td class="no">—</td><td class="no feat-col">—</td><td class="check">✓</td></tr>
+
+          <tr class="row-head"><td colspan="4">Tax &amp; Advisory</td></tr>
+          <tr><td>Quarterly tax projection</td><td class="no">—</td><td class="check feat-col">✓</td><td class="check">✓</td></tr>
+          <tr><td>Multi-entity consolidation</td><td class="no">—</td><td class="no feat-col">—</td><td class="check">✓</td></tr>
+
+          <tr class="row-head"><td colspan="4">Support</td></tr>
+          <tr><td>Response time</td><td>24 hrs</td><td class="feat-col">8 hrs</td><td>Same day</td></tr>
+          <tr><td>Monthly call</td><td class="no">—</td><td class="check feat-col">✓</td><td>Weekly</td></tr>
+          <tr><td>Dedicated account manager</td><td class="no">—</td><td class="no feat-col">—</td><td class="check">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-lead reveal">
+      <div class="kicker">Pricing FAQ</div>
+      <h2>Questions about <em>how</em> we bill.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span>Are fees really flat?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">Yes. Once we scope your engagement, you receive a written proposal with a fixed fee. If the scope changes materially during the engagement, we'll flag it and discuss before continuing — no billing surprises.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>What's included in the monthly bookkeeping fee?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">Everything in the tier's feature list — bank/credit reconciliation, transaction categorization, financial statements, and your chosen level of support. Year-end tax return is separate (priced flat by return type).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Do I have to sign an annual contract?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">Monthly engagements are month-to-month with 30-day notice. Annual plans save you 15% but lock in the rate for 12 months. One-time engagements (returns, formations) are pay-on-completion.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Are discounts available?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">Annual pre-payment saves 15% on recurring services. Bundled engagements (e.g., monthly bookkeeping + annual return + quarterly advisory) receive a 10% package discount. Non-profits receive 15% off standard pricing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>What payment methods do you accept?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">ACH (preferred, no fee), credit card (3% processing fee), and wire transfer for engagements over $5,000. Annual plans are paid in full upfront; monthly plans auto-draft on the 1st.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>What if my return is more complex than the starting price?</span><div class="faq-toggle"></div></div>
+        <div class="faq-a">The "From" price reflects a straightforward return for that type. Complexity factors (rental properties, K-1s, multi-state, foreign accounts, crypto activity) add clearly-disclosed fees. You'll see the full quote before we begin.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2 class="reveal">Not sure which plan <em>fits</em>?</h2>
+    <p class="reveal">Book a free 30-minute call. We'll look at your situation and give you a flat-fee proposal in writing — within 48 hours.</p>
+    <a href="index.html#contact" class="btn-primary reveal">
+      Get Your Custom Quote
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">H</span>
+          <span>HYK Tax<small style="color:rgba(246,241,232,.6)">CPA · EST. 2009</small></span>
+        </a>
+        <p>A Florida-licensed CPA firm delivering tax, accounting, and advisory services to U.S. businesses and individuals — with a dedicated offshore team that keeps your work moving around the clock.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Tax Preparation</a></li>
+          <li><a href="index.html#services">Bookkeeping</a></li>
+          <li><a href="index.html#services">Tax Advisory</a></li>
+          <li><a href="index.html#services">IRS Representation</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Engagement Letter</a></li>
+          <li><a href="#">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HYK Tax, PLLC. All rights reserved. Florida CPA License #AC-XXXXXX.</div>
+      <div>Designed &amp; built with care.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>30));
+
+  /* Burger */
+  const burger=document.getElementById('burger');
+  const navLinks=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>{burger.classList.toggle('open');navLinks.classList.toggle('open')});
+
+  /* Reveal */
+  const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+
+  /* Billing toggle */
+  const toggleBox=document.getElementById('billingToggle');
+  const togglePill=document.getElementById('togglePill');
+  const toggleBtns=toggleBox.querySelectorAll('button');
+
+  function positionPill(){
+    const active=toggleBox.querySelector('button.active');
+    togglePill.style.left=active.offsetLeft+'px';
+    togglePill.style.width=active.offsetWidth+'px';
+  }
+  setTimeout(positionPill,50);
+  window.addEventListener('resize',positionPill);
+
+  toggleBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      toggleBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      positionPill();
+
+      const mode=btn.dataset.bill;
+      // Update amounts
+      document.querySelectorAll('.amount[data-monthly]').forEach(el=>{
+        const v=mode==='annual'?el.dataset.annual:el.dataset.monthly;
+        el.textContent=parseInt(v).toLocaleString();
+      });
+      document.querySelectorAll('[data-monthly-advisory]').forEach(el=>{
+        const v=mode==='annual'?el.dataset.annualAdvisory:el.dataset.monthlyAdvisory;
+        el.textContent=parseInt(v).toLocaleString();
+      });
+      // Update original lines
+      document.querySelectorAll('.tier-original').forEach(el=>{
+        el.textContent=mode==='annual'?el.dataset.annual:el.dataset.monthly||'';
+      });
+    });
+  });
+
+  /* FAQ */
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      const open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!open)item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
