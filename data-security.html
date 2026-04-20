@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Security — HYK Tax</title>
+<meta name="description" content="How HYK Tax protects client data: encryption, access controls, audits, incident response, and infrastructure security." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F6F1E8;--cream-2:#EFE7D7;--ink:#0B1F33;--ink-soft:#17344E;
+    --brass:#B8894A;--brass-deep:#8E6633;--muted:#5B5952;--rule:#D8CFBC;
+    --shadow:0 20px 60px -30px rgba(11,31,51,.35);
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.8;mix-blend-mode:multiply}
+  a{color:var(--brass-deep);text-decoration:none}
+  a:hover{color:var(--ink);text-decoration:underline}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* NAV — same as rest of site */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.4s;background:transparent}
+  .nav.scrolled{background:rgba(246,241,232,.92);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--rule)}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:26px;font-variation-settings:"SOFT" 30;letter-spacing:-.5px;color:var(--ink)!important;text-decoration:none}
+  .logo:hover{text-decoration:none}
+  .logo > span:not(.logo-mark){display:inline-flex;flex-direction:column;line-height:1.1}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;font-variation-settings:"SOFT" 100;position:relative}
+  .logo-mark::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid var(--brass);opacity:.6}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:2.5px;color:var(--muted);font-weight:500;text-transform:uppercase;margin-top:2px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{position:relative;padding:6px 0;transition:.2s;color:var(--ink)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+  .nav-links a:hover{color:var(--brass-deep);text-decoration:none}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{background:var(--ink);color:var(--cream)!important;padding:12px 22px;border-radius:50px;font-size:13.5px;font-weight:500;transition:.25s}
+  .nav-cta:hover{background:var(--brass-deep);transform:translateY(-1px);box-shadow:var(--shadow);text-decoration:none}
+  .nav-links-cta{display:none}
+  .burger{display:none;width:28px;height:22px;position:relative;flex-direction:column;justify-content:space-between}
+  .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+
+  /* PAGE HERO */
+  .legal-hero{padding:140px 0 50px;background:var(--cream-2);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+  .legal-hero::before{content:'';position:absolute;top:30%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(184,137,74,.12),transparent 65%);border-radius:50%;pointer-events:none}
+  .breadcrumb{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+  .breadcrumb a{color:var(--brass-deep);font-weight:500}
+  .legal-hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,60px);font-weight:400;line-height:1.05;letter-spacing:-1px;font-variation-settings:"SOFT" 50,"opsz" 144;margin-bottom:20px;max-width:18ch}
+  .legal-hero h1 em{font-style:italic;color:var(--brass-deep);font-variation-settings:"SOFT" 100}
+  .legal-meta{display:flex;gap:32px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);padding-top:20px;border-top:1px solid var(--rule);margin-top:30px}
+  .legal-meta strong{color:var(--ink);font-weight:600;display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+
+  /* LAYOUT */
+  .legal-layout{display:grid;grid-template-columns:240px 1fr;gap:60px;padding:60px 0 100px;align-items:flex-start}
+
+  /* SIDEBAR TOC */
+  .toc{position:sticky;top:100px;background:white;border:1px solid var(--rule);border-radius:16px;padding:24px;font-size:14px;max-height:calc(100vh - 140px);overflow-y:auto}
+  .toc-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--brass-deep);font-weight:600;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .toc ol{list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:item}
+  .toc ol li{counter-increment:item;font-size:13.5px;line-height:1.4}
+  .toc ol li a{color:var(--ink);display:flex;gap:10px;align-items:flex-start;padding:4px 0;border-radius:4px;transition:.2s}
+  .toc ol li a::before{content:counter(item,decimal-leading-zero);font-family:var(--serif);font-size:11px;font-weight:500;color:var(--brass);min-width:20px;font-variation-settings:"SOFT" 60;flex-shrink:0;padding-top:2px}
+  .toc ol li a:hover{color:var(--brass-deep);text-decoration:none}
+  .toc ol li a.active{color:var(--brass-deep);font-weight:600}
+
+  /* CONTENT */
+  .legal-content{max-width:780px;font-size:16px;line-height:1.75;color:var(--ink)}
+  .legal-content > p:first-of-type{font-size:18px;color:var(--muted);margin-bottom:32px;padding:24px;background:var(--cream-2);border-left:3px solid var(--brass);border-radius:0 12px 12px 0}
+  .legal-content h2{
+    font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.15;
+    font-variation-settings:"SOFT" 50;letter-spacing:-.5px;
+    margin:48px 0 18px;padding-top:24px;border-top:1px solid var(--rule);
+    scroll-margin-top:100px;
+  }
+  .legal-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+  .legal-content h2 .sec-num{
+    display:inline-block;font-family:var(--serif);font-size:14px;color:var(--brass);
+    font-weight:500;letter-spacing:1.5px;font-variation-settings:"SOFT" 60;
+    text-transform:uppercase;margin-right:12px;vertical-align:5px;
+  }
+  .legal-content h3{
+    font-family:var(--serif);font-size:19px;font-weight:500;
+    font-variation-settings:"SOFT" 50;
+    margin:28px 0 10px;color:var(--ink);
+  }
+  .legal-content p{margin-bottom:16px}
+  .legal-content ul,.legal-content ol{margin:0 0 18px 24px;display:flex;flex-direction:column;gap:8px}
+  .legal-content li{padding-left:6px}
+  .legal-content li::marker{color:var(--brass)}
+  .legal-content strong{color:var(--ink);font-weight:600}
+  .legal-content a{color:var(--brass-deep);font-weight:500;border-bottom:1px solid rgba(184,137,74,.3)}
+  .legal-content a:hover{border-bottom-color:var(--brass-deep);text-decoration:none}
+  .legal-content blockquote{
+    margin:24px 0;padding:20px 24px;background:var(--cream-2);
+    border-left:3px solid var(--brass);border-radius:0 12px 12px 0;
+    font-size:15px;color:var(--muted);font-style:italic;
+  }
+  .legal-content table{
+    width:100%;border-collapse:collapse;margin:24px 0;
+    background:white;border-radius:12px;overflow:hidden;
+    border:1px solid var(--rule);font-size:14px;
+  }
+  .legal-content th,.legal-content td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--rule)}
+  .legal-content th{background:var(--cream);font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink)}
+  .legal-content tr:last-child td{border-bottom:none}
+  .legal-content code{background:var(--cream-2);padding:2px 8px;border-radius:4px;font-size:14px;color:var(--ink-soft);font-family:ui-monospace,monospace}
+
+  /* CONTACT BOX AT END */
+  .contact-box{
+    margin-top:60px;padding:32px;background:var(--ink);color:var(--cream);
+    border-radius:16px;
+  }
+  .contact-box h3{font-family:var(--serif);font-size:22px;font-weight:500;font-variation-settings:"SOFT" 50;margin-bottom:12px;color:var(--cream)}
+  .contact-box p{font-size:14.5px;opacity:.85;margin-bottom:18px}
+  .contact-box .contact-row{font-size:14px;display:flex;flex-direction:column;gap:8px}
+  .contact-box .contact-row span{display:flex;gap:10px;align-items:center}
+  .contact-box .contact-row strong{color:var(--brass);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;width:80px;flex-shrink:0}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:80px 0 30px;position:relative;overflow:hidden}
+  footer::before{content:'HYK';position:absolute;bottom:-80px;right:-40px;font-family:var(--serif);font-size:400px;font-weight:300;opacity:.04;letter-spacing:-20px;line-height:.8;font-variation-settings:"SOFT" 100;pointer-events:none}
+  footer a{color:inherit;border:none}
+  footer a:hover{text-decoration:none}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(246,241,232,.15);position:relative;z-index:2}
+  .footer-brand .logo{color:var(--cream)!important}
+  .footer-brand .logo-mark{background:var(--cream);color:var(--ink)}
+  .footer-brand .logo small{color:rgba(246,241,232,.6)!important}
+  .footer-brand p{margin-top:20px;font-size:14.5px;opacity:.7;line-height:1.65;max-width:36ch}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,241,232,.2);display:grid;place-items:center;transition:all .25s}
+  .social:hover{background:var(--brass);border-color:var(--brass)}
+  .footer-col h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;color:var(--brass);font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{font-size:14.5px;opacity:.75;transition:all .2s;color:var(--cream)!important}
+  .footer-col a:hover{opacity:1;color:var(--brass)!important}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;font-size:13px;opacity:.6;flex-wrap:wrap;gap:16px;position:relative;z-index:2}
+
+  @media (max-width:1100px){
+    .nav-links{gap:24px;font-size:13.5px}
+    .nav-cta{padding:11px 18px;font-size:13px}
+  }
+  @media (max-width:960px){
+    .legal-layout{grid-template-columns:1fr;gap:40px}
+    .toc{position:static;max-height:none}
+    .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:24px;gap:18px;border-top:1px solid var(--rule);align-items:stretch}
+    .nav-links.open{display:flex}
+    .nav-links-cta{display:block!important;background:var(--ink);color:var(--cream)!important;padding:14px 20px!important;border-radius:50px;text-align:center!important;margin-top:8px;font-weight:500}
+    .burger{display:flex}
+    .nav-cta{display:none}
+  }
+  @media (max-width:600px){
+    .footer-top{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+    .legal-hero{padding:120px 0 40px}
+    .legal-content{font-size:15.5px}
+    .legal-content h2{font-size:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">H</span>
+      <span>HYK Tax<small>CPA · EST. 2009</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="insights.html">Insights</a>
+      <a href="portal.html">Portal</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="book.html" class="nav-links-cta">Book a Consultation →</a>
+    </div>
+    <a href="book.html" class="nav-cta">Book a Consultation →</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="legal-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> · Legal · Data Security</div>
+    <h1>Data <em>Security</em></h1>
+    <div class="legal-meta">
+      <div><strong>Effective</strong>January 1, 2026</div>
+      <div><strong>Last Updated</strong>January 1, 2026</div>
+      <div><strong>Applies To</strong>HYK Tax, PLLC and all clients</div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="legal-layout">
+    <aside class="toc">
+      <div class="toc-title">In This Policy</div>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#frameworks">Frameworks &amp; Standards</a></li>
+        <li><a href="#encryption">Encryption</a></li>
+        <li><a href="#access">Access Controls</a></li>
+        <li><a href="#infrastructure">Infrastructure Security</a></li>
+        <li><a href="#offshore">Offshore Team Security</a></li>
+        <li><a href="#monitoring">Monitoring &amp; Audits</a></li>
+        <li><a href="#incident">Incident Response</a></li>
+        <li><a href="#training">Staff Training</a></li>
+        <li><a href="#vendor">Vendor Management</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact Security Team</a></li>
+      </ol>
+    </aside>
+
+    <article class="legal-content">
+      <p>HYK Tax handles some of the most sensitive information that exists about your life and your business — Social Security Numbers, financial accounts, payroll records, business performance. We treat that responsibility with the rigor it deserves. This page documents the controls we have in place to protect your data, audited annually by independent third parties.</p>
+
+      <h2 id="overview"><span class="sec-num">01</span>Overview</h2>
+      <p>Our security program is built around four principles:</p>
+      <ol>
+        <li><strong>Defense in depth</strong> — multiple overlapping controls so a single failure never causes a breach</li>
+        <li><strong>Least privilege</strong> — staff access only the client data they need to do their assigned work</li>
+        <li><strong>Continuous verification</strong> — quarterly internal reviews, annual third-party audits, ongoing penetration testing</li>
+        <li><strong>Transparency</strong> — clients have the right to know how their data is protected, and we publish our practices openly</li>
+      </ol>
+
+      <h2 id="frameworks"><span class="sec-num">02</span>Frameworks &amp; Standards</h2>
+      <p>We comply with or are aligned to the following frameworks:</p>
+      <ul>
+        <li><strong>IRS Publication 4557</strong> — Safeguarding Taxpayer Data (mandatory for U.S. tax preparers)</li>
+        <li><strong>SOC 2 Type II</strong> — independently audited annually for security, availability, processing integrity, and confidentiality</li>
+        <li><strong>Gramm-Leach-Bliley Act (GLBA) Safeguards Rule</strong> — federal law governing financial institution data security</li>
+        <li><strong>NIST Cybersecurity Framework</strong> — used as our foundational risk-management model</li>
+        <li><strong>AICPA Statement on Standards for Tax Services (SSTS)</strong> — professional standards including data protection</li>
+        <li><strong>GDPR</strong> — for clients who are EU residents or whose data flows through EU jurisdiction</li>
+      </ul>
+
+      <h2 id="encryption"><span class="sec-num">03</span>Encryption</h2>
+      <h3>Data at rest</h3>
+      <p>All client documents stored in our portal (TaxDome) and document vault (Box) are encrypted using <strong>AES-256</strong>, an encryption standard approved by the U.S. National Security Agency for Top Secret data. Encryption keys are managed by our infrastructure providers using FIPS 140-2 validated key management modules.</p>
+      <h3>Data in transit</h3>
+      <p>All communication between you, our portal, and our internal systems uses <strong>TLS 1.3</strong> with perfect forward secrecy. We do not support older TLS or SSL protocols. Our SSL Labs grade is A+.</p>
+      <h3>Email</h3>
+      <p>Sensitive documents are <strong>never</strong> sent over standard email. All document exchange happens through the encrypted client portal. If email exchange is unavoidable, we use S/MIME or password-protected encrypted attachments.</p>
+
+      <h2 id="access"><span class="sec-num">04</span>Access Controls</h2>
+      <h3>Authentication</h3>
+      <ul>
+        <li>Mandatory two-factor authentication (2FA) on every staff and client account</li>
+        <li>Support for SMS, authenticator apps (TOTP), and FIDO2 hardware security keys</li>
+        <li>Minimum 14-character passwords with complexity requirements</li>
+        <li>Automatic session timeout after 30 minutes of inactivity</li>
+        <li>Account lockout after 5 failed login attempts</li>
+      </ul>
+      <h3>Authorization</h3>
+      <ul>
+        <li>Role-based access control (RBAC) with documented permission matrix</li>
+        <li>Need-to-know basis: staff only see client files they're actively working on</li>
+        <li>Privileged access (admin functions) restricted to 3 named individuals</li>
+        <li>Quarterly access reviews — every staff member's permissions audited every 90 days</li>
+        <li>Immediate revocation of access upon staff departure (within 1 hour)</li>
+      </ul>
+
+      <h2 id="infrastructure"><span class="sec-num">05</span>Infrastructure Security</h2>
+      <ul>
+        <li><strong>Cloud infrastructure</strong> — hosted on AWS US-East and US-West regions; no on-premise servers handle client data</li>
+        <li><strong>Network segmentation</strong> — client data systems isolated from public-facing systems by hardware firewalls</li>
+        <li><strong>Endpoint protection</strong> — all staff devices run encrypted disks, EDR (endpoint detection &amp; response), and centralized device management</li>
+        <li><strong>VPN required</strong> — staff must connect through corporate VPN with certificate-based authentication to access client systems</li>
+        <li><strong>BYOD prohibited</strong> — staff may only access client data from company-owned, managed devices</li>
+        <li><strong>Backup &amp; disaster recovery</strong> — encrypted offsite backups with 4-hour RPO and 24-hour RTO</li>
+      </ul>
+
+      <h2 id="offshore"><span class="sec-num">06</span>Offshore Team Security</h2>
+      <p>HYK Tax operates a dedicated production team in Surat, India. The same security controls apply universally — there is no "U.S. tier" and "offshore tier" of protection. Specifically:</p>
+      <ul>
+        <li>All offshore staff sign written confidentiality agreements compliant with IRC §7216 and IRS Pub. 4557 before any client data access</li>
+        <li>Background checks conducted on all offshore staff prior to onboarding</li>
+        <li>Offshore facility has biometric access, 24/7 video monitoring, and visitor logs</li>
+        <li>USB ports, personal devices, and cameras are physically prohibited in the production area</li>
+        <li>All offshore work happens via secure VDI (virtual desktop infrastructure) — no client data ever stored on local devices</li>
+        <li>Offshore facility independently audited under SOC 2 Type II annually</li>
+      </ul>
+
+      <h2 id="monitoring"><span class="sec-num">07</span>Monitoring &amp; Audits</h2>
+      <ul>
+        <li><strong>Continuous logging</strong> — every access to client data is logged with user ID, timestamp, IP, and action</li>
+        <li><strong>SIEM monitoring</strong> — security information and event management with 24/7 anomaly alerting</li>
+        <li><strong>Annual penetration testing</strong> — by independent third-party security firms (current vendor: [VENDOR])</li>
+        <li><strong>Quarterly vulnerability scanning</strong> — automated scanning of all infrastructure</li>
+        <li><strong>Annual SOC 2 audit</strong> — by an AICPA-licensed auditing firm</li>
+        <li><strong>Internal security review</strong> — quarterly review by our Security Officer with documented findings</li>
+      </ul>
+
+      <h2 id="incident"><span class="sec-num">08</span>Incident Response</h2>
+      <p>We maintain a documented Incident Response Plan with the following commitments:</p>
+      <ul>
+        <li><strong>Detection</strong> — automated alerting on anomalous access patterns; mandatory reporting by staff</li>
+        <li><strong>Containment</strong> — isolation of affected systems within 1 hour of confirmed incident</li>
+        <li><strong>Investigation</strong> — full forensic analysis with documented chain of evidence</li>
+        <li><strong>Notification</strong> — affected clients notified within 72 hours per GDPR; sooner if state law (e.g., Florida F.S. §501.171) requires</li>
+        <li><strong>Remediation</strong> — root-cause analysis and corrective action documented within 30 days</li>
+        <li><strong>Reporting</strong> — IRS Stakeholder Liaison and applicable state regulators notified per IRS Pub. 4557 §IV</li>
+      </ul>
+
+      <h2 id="training"><span class="sec-num">09</span>Staff Training</h2>
+      <ul>
+        <li><strong>Onboarding</strong> — mandatory 4-hour security training before any client data access</li>
+        <li><strong>Annual refresher</strong> — all staff complete updated security training every 12 months</li>
+        <li><strong>Phishing simulation</strong> — quarterly internal phishing tests with mandatory remediation training for failures</li>
+        <li><strong>IRS Pub. 4557 training</strong> — annual training on the Safeguarding Taxpayer Data publication</li>
+        <li><strong>Role-specific training</strong> — engineers, partners, and customer-facing staff receive additional role-specific modules</li>
+      </ul>
+
+      <h2 id="vendor"><span class="sec-num">10</span>Vendor Management</h2>
+      <p>Every third-party vendor with access to client data is vetted and contracted under our Vendor Risk Management program:</p>
+      <ul>
+        <li>Independent SOC 2 Type II report reviewed before engagement</li>
+        <li>Data Processing Agreement (DPA) signed with every processor</li>
+        <li>Annual re-review of vendor security posture</li>
+        <li>Right to audit clause in all material vendor contracts</li>
+      </ul>
+      <p>Current key vendors include TaxDome (client portal), Box (document storage), CCH Axcess (tax preparation), AWS (infrastructure), and Google Workspace (internal communications) — all SOC 2 audited.</p>
+
+      <h2 id="certifications"><span class="sec-num">11</span>Certifications</h2>
+      <p>HYK Tax holds the following certifications and registrations:</p>
+      <table>
+        <thead><tr><th>Certification</th><th>Status</th><th>Last Audit</th></tr></thead>
+        <tbody>
+          <tr><td>SOC 2 Type II</td><td>Active</td><td>Q4 2025</td></tr>
+          <tr><td>IRS Pub. 4557 Compliance</td><td>Active</td><td>Q1 2026</td></tr>
+          <tr><td>Florida CPA License</td><td>Active</td><td>Renewal Q3 2026</td></tr>
+          <tr><td>IRS PTIN Registration</td><td>Active</td><td>Renewed annually</td></tr>
+        </tbody>
+      </table>
+      <p>Copies of our SOC 2 Type II report are available to active clients upon written request under NDA.</p>
+
+      <h2 id="contact"><span class="sec-num">12</span>Contact Security Team</h2>
+      <p>To report a security concern, request our SOC 2 report, or ask any data security question:</p>
+
+      <div class="contact-box">
+        <h3>HYK Tax — Security Officer</h3>
+        <p>We respond to all security concerns within 24 hours. For active incidents, response is immediate.</p>
+        <div class="contact-row">
+          <span><strong>Email</strong>security@hyktax.com</span>
+          <span><strong>Phone</strong>+1 (305) 555-0199</span>
+          <span><strong>PGP</strong>Key fingerprint available on request</span>
+          <span><strong>Mail</strong>HYK Tax, PLLC · Attn: Security Officer · [Address] · [City], FL [ZIP]</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">H</span>
+          <span>HYK Tax<small>CPA · EST. 2009</small></span>
+        </a>
+        <p>A Florida-licensed CPA firm delivering tax, accounting, and advisory services to U.S. businesses and individuals — with a dedicated offshore team that keeps your work moving around the clock.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/></svg></a>
+          <a href="#" class="social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Tax Preparation</a></li>
+          <li><a href="index.html#services">Bookkeeping</a></li>
+          <li><a href="index.html#services">Tax Advisory</a></li>
+          <li><a href="index.html#services">IRS Representation</a></li>
+          <li><a href="index.html#services">Payroll &amp; Sales Tax</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="portal.html">Client Portal</a></li>
+          <li><a href="book.html">Book a Call</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="engagement-letter.html">Engagement Letter</a></li>
+          <li><a href="data-security.html">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 HYK Tax, PLLC. All rights reserved. Florida CPA License #AC-XXXXXX.</div>
+      <div>Designed &amp; built with care.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
+
+  // Active TOC item on scroll
+  const headings = document.querySelectorAll('.legal-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        const id = e.target.id;
+        tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-100px 0px -60% 0px' });
+  headings.forEach(h => obs.observe(h));
+</script>
+</body>
+</html>
