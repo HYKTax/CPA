@@ -636,10 +636,10 @@
       <div class="footer-col">
         <h5>Legal</h5>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Engagement Letter</a></li>
-          <li><a href="#">Data Security</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="engagement-letter.html">Engagement Letter</a></li>
+          <li><a href="data-security.html">Data Security</a></li>
         </ul>
       </div>
     </div>
@@ -668,16 +668,16 @@
     });
   });
 
-  // Sign-in click feedback (demo)
+  // Sign-in click — demo authentication that opens the dashboard
   document.getElementById('signinBtn').addEventListener('click', (e) => {
     const email = document.getElementById('email').value.trim();
     const pw = document.getElementById('password').value.trim();
     if (!email || !pw) {
-      alert('Please enter your email and password.\n\n(Demo only — wire to your TaxDome / Box / Auth0 backend in production.)');
+      alert('Please enter your email and password to sign in.');
       return;
     }
     e.target.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Signing in...';
-    setTimeout(() => alert('Demo: connect this to TaxDome, Box, or your auth provider in production.'), 800);
+    setTimeout(() => { window.location.href = 'dashboard.html'; }, 700);
   });
 
   const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }}), { threshold: 0.1 });
