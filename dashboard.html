@@ -36,7 +36,6 @@
     background:var(--ink);color:var(--cream);
     position:sticky;top:0;height:100vh;
     display:flex;flex-direction:column;
-    overflow:hidden;
   }
   .sb-brand{
     padding:24px 22px;border-bottom:1px solid rgba(246,241,232,.08);
@@ -175,8 +174,8 @@
   .panel-action:hover{color:var(--ink)}
 
   /* CHART */
-  .chart{height:240px;position:relative;margin-bottom:14px}
-  .chart svg{width:100%;height:100%;overflow:visible}
+  .chart{height:260px;position:relative;margin-bottom:14px}
+  .chart svg{width:100%;height:100%;overflow:visible;display:block}
   .chart-grid line{stroke:var(--rule);stroke-width:1;stroke-dasharray:2 4}
   .chart-axis text{font-size:10px;fill:var(--muted);font-family:var(--sans)}
   .chart-area{fill:url(#chartGrad)}
@@ -308,6 +307,10 @@
 
   /* MOBILE */
   .sidebar.open{transform:translateX(0)}
+  @media (max-width:1280px){
+    .dash-grid{grid-template-columns:1fr;gap:20px}
+    .content{padding:28px 28px 50px}
+  }
   @media (max-width:960px){
     .app{grid-template-columns:1fr}
     .sidebar{
@@ -481,7 +484,7 @@
             </div>
 
             <div class="chart">
-              <svg viewBox="0 0 600 240" preserveAspectRatio="none">
+              <svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#B8894A" stop-opacity="0.3"/>
