@@ -309,6 +309,8 @@
 
   /* MOBILE */
   .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150;display:none}
+  .sidebar-overlay.active{display:block}
   @media (max-width:1280px){
     .dash-grid{grid-template-columns:1fr;gap:20px}
     .content{padding:28px 28px 50px}
@@ -326,8 +328,6 @@
     .kpi-row{grid-template-columns:1fr 1fr;gap:14px}
     .dash-grid{grid-template-columns:1fr}
     .greeting h1{font-size:28px}
-    .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150;display:none}
-    .sidebar-overlay.active{display:block}
   }
   @media (max-width:520px){
     .kpi-row{grid-template-columns:1fr}
