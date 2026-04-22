@@ -411,6 +411,9 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23F6F1E8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
     background-repeat:no-repeat;background-position:center;
   }
+  
+  .tab-learn-more{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:11px 22px;background:var(--ink);color:var(--cream);border-radius:50px;font-size:13.5px;font-weight:500;text-decoration:none;transition:all .25s}
+  .tab-learn-more:hover{background:var(--brass-deep);transform:translateY(-2px);box-shadow:var(--shadow)}
   .tab-panel .pricing{
     display:inline-flex;align-items:baseline;gap:10px;
     padding:14px 22px;background:white;border-radius:50px;
@@ -951,6 +954,7 @@
             <span class="amount">$295</span>
             <span class="period">/ return</span>
           </div>
+                  <a href="tax-preparation.html" class="tab-learn-more">Learn more about Tax Preparation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="tab-panel" id="book">
@@ -969,6 +973,7 @@
             <span class="amount">$395</span>
             <span class="period">/ month</span>
           </div>
+                  <a href="monthly-bookkeeping.html" class="tab-learn-more">Learn more about Bookkeeping <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="tab-panel" id="advisory">
@@ -987,6 +992,7 @@
             <span class="amount">$1,250</span>
             <span class="period">/ quarter</span>
           </div>
+                  <a href="tax-advisory.html" class="tab-learn-more">Learn more about Tax Advisory <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="tab-panel" id="irs">
@@ -1005,6 +1011,7 @@
             <span class="amount">$495</span>
             <span class="period">+ per case</span>
           </div>
+                  <a href="irs-representation.html" class="tab-learn-more">Learn more about IRS Representation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="tab-panel" id="payroll">
@@ -1023,6 +1030,7 @@
             <span class="amount">$125</span>
             <span class="period">/ month</span>
           </div>
+                  <a href="payroll-sales-tax.html" class="tab-learn-more">Learn more about Payroll & Sales Tax <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div class="tab-panel" id="formation">
@@ -1042,7 +1050,8 @@
             <span class="period">all-in</span>
           </div>
         </div>
-      </div>
+                <a href="business-formation.html" class="tab-learn-more">Learn more about Business Formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
     </div>
   </div>
 </section>
@@ -1483,11 +1492,12 @@
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#services">Tax Preparation</a></li>
-          <li><a href="#services">Bookkeeping</a></li>
-          <li><a href="#services">Tax Advisory</a></li>
-          <li><a href="#services">IRS Representation</a></li>
-          <li><a href="#services">Payroll &amp; Sales Tax</a></li>
+          <li><a href="tax-preparation.html">Tax Preparation</a></li>
+          <li><a href="monthly-bookkeeping.html">Bookkeeping</a></li>
+          <li><a href="tax-advisory.html">Tax Advisory</a></li>
+          <li><a href="irs-representation.html">IRS Representation</a></li>
+          <li><a href="payroll-sales-tax.html">Payroll &amp; Sales Tax</a></li>
+          <li><a href="business-formation.html">Business Formation</a></li>
           <li><a href="pricing.html">Pricing</a></li>
         </ul>
       </div>
@@ -1631,7 +1641,7 @@
      2. Create a new form, copy the endpoint (e.g. https://formspree.io/f/abc12345)
      3. Replace the FORMSPREE_ENDPOINT value below
      4. That's it — submissions will email the address on your Formspree account. */
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrerarkw'; // ← REPLACE THIS
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // ← REPLACE THIS
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('successMsg');
   const submitBtn = form.querySelector('button[type="submit"]');
